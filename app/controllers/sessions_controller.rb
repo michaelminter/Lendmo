@@ -1,12 +1,12 @@
 class SessionsController < ApplicationController
   def create
     user = User.build(auth_hash)
-    sign_in user
+    # sign_in user
     redirect_to user
   end
   
   def destroy
-    sign_out
+    # sign_out
     redirect_to root_path
   end
   
