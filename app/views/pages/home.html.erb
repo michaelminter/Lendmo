@@ -1,9 +1,47 @@
-<div class="container">
-  <h1>Lendmo, the social lending platform!</h1>
+<center>
+    <div class = 'container'
+        style = "height:530px; width:600px;
+        font-family: 'Viga', sans-serif;">
 
-  <% if (@token) %>
-    <a href="/logout"><button class="btn large danger">Logout</button></a>
-  <% else %>
-    <a href="/login"><button class="btn large primary">Login with Facebook</button></a>
-  <% end %>
-</div>
+
+      <div id = 'landing_buffer'
+          style = "height:25%;">
+      </div>
+      
+
+      <div id = 'landing_login'
+            style = "height:5%; float:right;">
+      Login
+      </div>
+
+      <div id = 'landing_title'
+          style = "height:26%; font-size:120px; ">
+      Lendmo
+      </div>
+
+      <div id = 'landing_info'
+        style = "height:15%; ">
+        <div id = 'landing_catchphrase'
+            style = 'font-size:30px;'>
+          SHARING IS CARING
+        </div>
+        <div id = 'landing_catchphrase2'
+            style = 'font-size:20px;'>
+          And Lendmo helps you keep track of who has what.
+        </div>
+      </div>
+      
+      <div id = 'landing_connect'
+        style = "height: 15%;">
+
+          <span id = 'connect_button' style = "display:block; width:254px; height: 45px; background-image: url(/app/assets/images/facebook.png);">
+          <div style = 'font-size:10px'><br></div>
+            <% if (@token) %>
+                <a href='/logout'>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Logout</a>
+            <% else %>
+                <a href='/login'>&nbsp &nbsp &nbsp &nbsp Connect using Facebook</a>
+            <% end %>
+        </span>
+      </div>
+    </div>
+</center>
