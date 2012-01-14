@@ -3,9 +3,8 @@ Lendmo::Application.routes.draw do
   
   root :to => 'pages#home'
   
-  match '/login', :to => 'auth#start'
-  match '/login/callback', :to => 'auth#callback'
-  match '/logout', :to => 'auth#logout'
+  match '/login', :to => 'sessions#create'
+  match '/logout', :to => 'sessions#destroy'
   
   match '/about', :to => 'pages#about'
 
