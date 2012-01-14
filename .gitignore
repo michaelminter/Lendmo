@@ -3,6 +3,6 @@ tmp/
 *~
 *.swp
 *.log
-
+*.sqlite
 tmp/
 .bundle/

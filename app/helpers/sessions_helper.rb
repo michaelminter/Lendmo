@@ -1,28 +1,34 @@
 module SessionsHelper
   def sign_in(user)
-    cookies.permanent.signed[:remember_token] = [user.id, user.email]
-    self.current_user = user
+    cookies.signed[:remember_token] = [user.id, user.email]
+    session[:current_user] = user.id
   end
 
   def current_user=(user)
-    @current_user = user
+    session[:current_user] = user.id
   end
 
   def current_user
-    @current_user # ||= user_from_remember_token
-  end
+    if session[:current_user]
+      user_from_remember_token
+    else
+      User.find(session[:current_user])
+    end
+end
 
   def current_user?(user)
     user == current_user
   end
 
   def signed_in?
-    !current_user.nil?
+    !session[:current_user].nil?
   end
 
   def sign_out
     cookies.delete(:remember_token)
-    self.current_user = nil
+    session[:current_user] = nil
+    session[:token] = nil
+    current_user = nil
   end
 
   def deny_access
@@ -31,9 +37,9 @@ module SessionsHelper
 
   private
 
-  # def user_from_remember_token
-  #   User.authenticate_with_salt(*remember_token)
-  # end
+  def user_from_remember_token
+    User.find(*remember_token.first)
+  end
 
   def remember_token
     cookies.signed[:remember_token] || [nil, nil]

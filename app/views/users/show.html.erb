@@ -4,7 +4,7 @@
   <p id="notice"><%= notice %></p>
 
   <div id="profile" class="span12">
-    <%= image_tag("http://graph.facebook.com/#{@user.fb_id}/picture") %>
+    <%= image_tag @user.profile_picture %>
     <h2><a href="<%= @user.url %>"><%= @user.name %></a></h2>
     <p><%= @user.email %></p>
   </div>
@@ -12,11 +12,17 @@
   <% render :partial => 'layouts/userbox' %>
 
   <div id="user-feed">
-    <h1><%= @user.first_name %>'s Lendmo activity</h1>
+    <h3><%= @user.first_name %>'s Lendmo activity</h3>
     <div class="feed">
       
     </div>
   </div>
   
-  <%= debug @user %>
+  <% @user.friends(session[:token]).each do |friend| %>
+    <% if User.exists(friend.identifier) %>
+      <%= friend.name %> <br/>
+    <% end %>
+  <% end %>
+  
+  <%= debug session %>
 </div>
