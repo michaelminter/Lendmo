@@ -12,3 +12,60 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006400', end
 
 color: white;
 }
+
+#container
+{
+    height:530px; 
+    width:600px;
+    font-family: 'Viga', sans-serif;
+}
+
+#landing_buffer
+{
+    height:25%;
+}
+
+#landing_login
+{
+    height:5%; 
+    float:right;
+}
+
+#landing_title
+{
+    height:26%; 
+    font-size:120px;
+}
+
+#landing_info
+{
+    height:15%; 
+}
+
+#landing_catchphrase
+{
+    font-size:30px;
+}
+
+#landing_catchphrase2
+{
+    font-size:20px;
+}
+
+#landing_connect
+{
+    height: 15%;
+}
+
+#connect_button
+{
+    display:block; 
+    width:254px; 
+    height: 45px; 
+    background-image: url(/app/assets/images/facebook.png);
+}
+
+#connect_button_text
+{
+    font-size:10px;
+}

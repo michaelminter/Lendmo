@@ -1,41 +1,32 @@
 <link href='/app/assets/stylesheets/home_style.css' rel='stylesheet' type='text/css'>
 
 <center>
-    <div class = 'container'
-        style = "height:530px; width:600px;
-        font-family: 'Viga', sans-serif;">
+    <div class = 'container'>
 
-      <div id = 'landing_buffer'
-          style = "height:25%;">
+      <div id = 'landing_buffer'>
       </div>
       
-      <div id = 'landing_login'
-            style = "height:5%; float:right;">
+      <div id = 'landing_login'>
       Login
       </div>
 
-      <div id = 'landing_title'
-          style = "height:26%; font-size:120px; ">
+      <div id = 'landing_title'>
       Lendmo
       </div>
 
-      <div id = 'landing_info'
-        style = "height:15%; ">
-        <div id = 'landing_catchphrase'
-            style = 'font-size:30px;'>
+      <div id = 'landing_info'>
+        <div id = 'landing_catchphrase'>
           SHARING IS CARING
         </div>
-        <div id = 'landing_catchphrase2'
-            style = 'font-size:20px;'>
+        <div id = 'landing_catchphrase2'>
           And Lendmo helps you keep track of who has what.
         </div>
       </div>
       
-      <div id = 'landing_connect'
-        style = "height: 15%;">
+      <div id = 'landing_connect'>
 
-          <span id = 'connect_button' style = "display:block; width:254px; height: 45px; background-image: url(/app/assets/images/facebook.png);">
-          <div style = 'font-size:10px'><br></div>
+          <span id = 'connect_button'>
+          <div id = 'connect_button_text'><br></div>
             <% if (@token) %>
                 <a href='/logout'>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Logout</a>
             <% else %>
