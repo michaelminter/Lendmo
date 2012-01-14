@@ -1,7 +1,12 @@
 Lendmo::Application.routes.draw do
   resources :users
   
-  root :to => 'application#index'
+  root :to => 'pages#home'
+  
+  match '/auth/facebook', :to => 'sessions#new'
+  match '/auth/logout', :to => 'sessions#destroy'
+  
+  match '/about', :to => 'pages#about'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
