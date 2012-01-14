@@ -38,4 +38,8 @@ class User < ActiveRecord::Base
       existing
     end
   end
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 330373e4cfca93dbe592ad3087ce3f1e6483b474
 end
