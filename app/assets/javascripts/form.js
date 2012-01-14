@@ -58,5 +58,5 @@ $(document).ready(function() {
         borrow_item.removeClass("invalid");
 
         return true;
-    }
+    });
 });
