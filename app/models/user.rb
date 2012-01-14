@@ -18,10 +18,16 @@ class User < ActiveRecord::Base
   end
 
   # Lend an item to a friend
-  def lend
-
+  def return(item_id)
+    Event.create(:item_id => i, :isLending => false)
+    i = Item.find(item_id)
+    i.destroy
   end
-  
+  def lend(item, borrower, value)
+    i = Item.new(:name => item, :user_id => self.id, :borrower_id => borrower, :value => value)
+    Event.create(:item_id => i.id, :isLending => true)
+  end
+
   # Find the user trying to sign in, or create a new one if they're new
   def self.find_or_create(auth_hash)
     existing = User.where("fb_id = ?", auth_hash[:uid]).first
