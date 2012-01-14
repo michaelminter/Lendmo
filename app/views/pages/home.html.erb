@@ -1,3 +1,13 @@
+<style>
+#connect_button
+{
+    display:block; 
+    width:254px; 
+    height: 45px; 
+    background-image: url(/apps/assets/images/facebook.png);
+}
+</style>
+
 <div id="landing-header">
 <%= render :partial => 'layouts/header' %>
 </div>
@@ -8,7 +18,11 @@
     <h3>SHARING IS CARING</h3>
     <p>And Lendmo helps you keep track of who has what.</p>
     
-    <a href='/auth/facebook'><button class="btn large primary" id="login-button">Login with Facebook</button></a>
+    <a href='/auth/facebook'>
+        <button class="btn large primary" id="connet_button">
+            Login with Facebook
+        </button>
+    </a>
   </div>
   
   <%= debug session %>
