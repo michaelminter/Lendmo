@@ -1681,6 +1681,7 @@ a.menu:after, .dropdown-toggle:after {
 .tabs > li {
   position: relative;
   margin-bottom: -1px;
+  
 }
 .tabs > li > a {
   padding: 0 15px;
@@ -1690,11 +1691,13 @@ a.menu:after, .dropdown-toggle:after {
   -webkit-border-radius: 4px 4px 0 0;
   -moz-border-radius: 4px 4px 0 0;
   border-radius: 4px 4px 0 0;
+  color: #808080;
 }
 .tabs > li > a:hover {
   text-decoration: none;
   background-color: #eee;
   border-color: #eee #eee #ddd;
+  color: #404040;
 }
 .tabs .active > a, .tabs .active > a:hover {
   color: #808080;
