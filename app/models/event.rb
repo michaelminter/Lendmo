@@ -13,4 +13,14 @@ class Event < ActiveRecord::Base
         borrower.name + " returned " item.name + " to " + lender.name
         end
     end
+
+    def get_lender
+        item = Item.find(:item_id)
+        User.find(item.user_id)
+    end
+
+    def get_borrower
+        item = Item.find(:item_id)
+        User.find(item.borrower_id)
+    end
 end
