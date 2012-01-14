@@ -2,7 +2,7 @@ development:
 application_id: 221737857912452
 api_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 secret_key: 329198e3c954437020325c9697aa9510
-callback_url: http://localhost:3000/
+callback_url: http://lendmo.heroku.com
 pretty_errors: true
 set_asset_host_to_callback_url: false
 tunnel:
