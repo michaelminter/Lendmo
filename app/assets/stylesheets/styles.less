@@ -43,12 +43,35 @@ hr {
 }
 
 /* Main */
+#landing-header {
+	#header {
+		background: #333;
+		color: #EEE;
+	}
+	
+	h1, h2, h3, p { color: #EEE; }
+	a { 
+		color: #DDD !important;
+		&:hover { color: #FFF !important; }
+	}
+}
+
 #header {
 	background: #EEE;
 	padding: 5px 0;
 	
 	h1 { float: left; margin: 0; }
-	a { float: right; margin-top: 10px; }
+	a { 
+		float: right; 
+		color: #444;
+		&:hover { color: #000; }
+	}
+}
+
+.hero-unit {
+	text-align: center;
+	h1 { font-size: 120px; }
+	h3 { font-weight: normal; }
 }
 
 .main {

@@ -10,6 +10,24 @@ class User < ActiveRecord::Base
     self.first_name + " " + self.last_name
   end
   
+  def profile_picture()
+    "http://graph.facebook.com/" + self.fb_id + "/picture"
+  end
+  
+  # Grab the list of Facebook friends using Lendmo
+  def friends(token)
+    if not token.nil?
+      fbUser = FbGraph::User.new(self.fb_id, :access_token => token)
+      fbUser = fbUser.fetch
+      fbUser.friends
+    end
+  end
+  
+  def self.exists(fb_id)
+    existing = User.where("fb_id = ?", fb_id).first
+    return existing != nil
+  end
+  
   # Select a random user from the database
   def self.random
     if (c = count) != 0

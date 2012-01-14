@@ -1,15 +1,4 @@
 <div id="user-profile">
-    <% image_tag [image path], :id => "user-profile-picture" %> <!-- PLEASE CHANGE -->
-    <h1 id="user-profile-name"><%= @user.name %></h1>
-    <p><% link_to image_tag([Facebook logo]), path_to(@user_facebook) %></p> <!-- PLEASE CHANGE -->
+  <% image_tag @user.profile_picture %>
+  <h1 id="user-profile-name"><%= @user.name %></h1>
 </div>
-
-<% if @user.name == session.user.name %>
-<div id="user-me-feed">
-    <h1>You and <%= @user.name %></h1>
-
-    <div class="feed">
-        <!-- for loop code to get feed items -->
-    </div>
-</div>
-<% end %>
