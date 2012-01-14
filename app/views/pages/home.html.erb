@@ -1,3 +1,7 @@
 <h1>Lendmo, the social lending platform!</h1>
 
-<a href="/auth/facebook"><button class="btn large primary">Login with Facebook</button></a>
+<% if (@token) %>
+  <a href="/logout"><button class="btn large danger">Logout</button></a>
+<% else %>
+  <a href="/login"><button class="btn large primary">Login with Facebook</button></a>
+<% end %>
