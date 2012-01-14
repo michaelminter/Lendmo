@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def create
-    user = User.build(auth_hash)
+    user = User.find_or_create(auth_hash)
     # sign_in user
     redirect_to user
   end
