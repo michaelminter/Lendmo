@@ -3,10 +3,10 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.3'
 
 # Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'oauth2',      :git => 'git://github.com/intridea/oauth2.git'
+gem 'oauth2', :git => 'git://github.com/intridea/oauth2.git'
 gem 'execjs'
 gem 'therubyracer'
 
@@ -24,7 +24,7 @@ gem 'jquery-rails'
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use debugger
-gem 'ruby-debug19', :require => 'ruby-debug'
+# gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
   # Pretty printed test output
