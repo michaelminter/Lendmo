@@ -14,7 +14,9 @@
 
         <div>
             <%= event_form_builder.label :item_id%>
-            <!--replace the particular database columns with the right ones-->
-            <%= event_form_builder.collection_select(:item_id, @items, :item_id, :item_name%>
+            <!--replace the particular database columns with the right ones and also remember to create instance variable-->
+            <%= event_form_builder.collection_select(:item_id, @items, :item_id, :item_name %>
         </div>
+        <%= event_form_builder.submit 'Post' %>
+    <% end %>
 </div>
