@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :items
-  
+
+  has_and_belongs_to_many :badges
+
   validates :first_name,  :presence => true,
                           :length   => { :maximum => 63 }
   validates :last_name,   :presence => true,
