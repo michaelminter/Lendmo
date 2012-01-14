@@ -1,0 +1,5 @@
+<table id="event-feed">
+    <% Events.all.each do |event| %>
+        <%= render posts/feed_item %>
+    <% end %>
+</table>
