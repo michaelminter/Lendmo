@@ -1,13 +1,13 @@
 <tr class="event">
-    <% lender = @event.item.get_lender %>
+    <% lender = event.item.get_lender %>
     <%= image_tag lender.profile_picture, :class => "event-profile-pic" %>
     <td class="details">
         <h1><%= lender.name %></h1>
-        <p><%= @event.description %></p>
+        <p><%= event.description %></p>
     </td>
 
     <ol class="comments">
-        <% @event.comments.each do |comment| %>
+        <% event.comments.each do |comment| %>
             <% commenter = comment.user %>
             <%= image_tag commenter.profile_picture, :class => "comment-profile-pic" %>
             <h1><%= commenter.name %></h1>
