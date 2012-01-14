@@ -6,6 +6,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require "chosen.jquery.min"
 
 $(document).ready(function(){
   $(".chzn-select").chosen();

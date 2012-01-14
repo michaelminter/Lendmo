@@ -23,7 +23,7 @@
         <%= form.submit "Post", :class => "btn default" %>
       <% end %>
 
-      <%= form_for @event, :html => {:class => "borrow-form"} do |form| %>
+      <%= form_for @event, :html => {:id => "borrow-form"} do |form| %>
         <!-- chosen.js insert -->
         <select class="chzn-select" data-placeholder="Choose a friend...">
           <option value="">Lend to...</option>

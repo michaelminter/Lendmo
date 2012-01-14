@@ -2,28 +2,51 @@ $(document).ready(function() {
     var lend_form = $("#lend-form");
     var borrow_form = $("#borrow-form");
 
-    // initially hide our expanded form
-    $(".expanded-form").hide();
-    $(".submit").attr("disabled", true);
+    // hide our forms before the user clicks the buttons, and disable
+    // the submit buttons
+    var init = function() {
+        lend_form.hide();
+        borrow_form.hide();
+    };
+
+    init();
     
     // action performed when user clicks lend button
     // The form box will expand during this action
     $("#lend").click(function() {
-        lend_form.slideDown();
-        borrow_form.slideUp();
+        if (  lend_form.css("display") === "none" &&
+            borrow_form.css("display") === "none") {
+
+            lend_form.slideDown();
+        }
+        else {
+            lend_form.show();
+        }
+        borrow_form.hide();
     });
 
     // borrow form box expands when user clicks borrow button
     $("#borrow").click(function() {
-        lend_form.slideUp();
-        borrow_form.slideDown();
+        if (  lend_form.css("display") === "none" &&
+            borrow_form.css("display") === "none") {
+
+            borrow_form.slideDown();
+        }
+        else {
+            borrow_form.show();
+        }
+        lend_form.hide();
     });
 
     // When the user submits the form, validate input first
-    $("#submit-lend").submit(function() {
+    $("#lend-form :submit").submit(function() {
         var lend_friend, lend_item;
-
         lend_friend = $("#lend .friend");
+        borrow_friend = $("#borrow .friend");
+
+        lend_friend.removeClass("invalid");
+        lend_item.removeClass("invalid");
+
         if (lend_friend.val() === "") {
             lend_friend.addClass("invalid");
             return false;
@@ -34,13 +57,10 @@ $(document).ready(function() {
             return false;
         }
 
-        lend_friend.removeClass("invalid");
-        lend_item.removeClass("invalid");
-
         return true;
     });
 
-    $("#submit-borrow").submit(function() {
+    $("#borrow-form :submit").submit(function() {
         var borrow_friend, borrow_item;
 
         borrow_friend = $("#borrow .friend");
