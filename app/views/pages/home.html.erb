@@ -1,19 +1,13 @@
-<div id="landing-header">
-<%= render :partial => 'layouts/header' %>
+<div class="hero-unit">
+  <h1>Lendmo</h1>
+  <h2>SHARING IS CARING</h2>
+  <p>And Lendmo helps you keep track of who has what.</p>
+  
+  <a href="/auth/facebook">
+      <button class="btn large primary" id="connect-button">
+          Login with Facebook
+      </button>
+  </a>
 </div>
 
-<div class="container">
-  <div class="hero-unit">
-    <h1>Lendmo</h1>
-    <h3>SHARING IS CARING</h3>
-    <p>And Lendmo helps you keep track of who has what.</p>
-    
-    <a href="/auth/facebook">
-        <button class="btn large primary" id="connect-button">
-            Login with Facebook
-        </button>
-    </a>
-  </div>
-  
-  <%= debug session %>
-</div>
+<%= debug session %>
