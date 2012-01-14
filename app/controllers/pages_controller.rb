@@ -1,8 +1,9 @@
 class PagesController < ApplicationController
   def home
     @title = "Lendmo Home"
-    @token = params[:token]
-    @user = params[:fb_user]
+    if signed_in?
+      redirect_to current_user
+    end
   end
   
 end

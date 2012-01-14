@@ -1,9 +1,11 @@
 <div id="header">
   <div class="container">
     <h1><%= link_to("Lendmo", root_path) %></h1>
-    <% if self.current_user %>
-      <%= link_to("Logout", :controller => "sessions", :action => "destroy") %>
-      <%= link_to self.current_user.name, self.current_user %>
+    <ul id="header-links">
+    <% if signed_in? %>
+      <li><%= link_to current_user.name, current_user %></li>
+      <li><%= link_to("Logout", :controller => "sessions", :action => "destroy") %></li>
     <% end %>
+    </ul>
   </div>
 </div>

@@ -34,6 +34,11 @@ class User < ActiveRecord::Base
       find(:first, :offset =>rand(c))
     end
   end
+
+  # Lend an item to a friend
+  def lend
+
+  end
   
   # Find the user trying to sign in, or create a new one if they're new
   def self.find_or_create(auth_hash)
@@ -51,5 +56,4 @@ class User < ActiveRecord::Base
       existing
     end
   end
-  
 end

@@ -2531,6 +2531,14 @@ hr {
 #header a:hover {
   color: #000;
 }
+#header ul {
+  float: right;
+  margin: 10px 0 0 0;
+}
+#header ul li {
+  float: left;
+  margin-left: 10px;
+}
 .hero-unit {
   text-align: center;
 }
