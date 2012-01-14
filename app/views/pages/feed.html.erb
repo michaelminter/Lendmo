@@ -24,14 +24,6 @@
       <% end %>
 
       <%= form_for @event, :html => {:id => "borrow-form"} do |form| %>
-        <!-- chosen.js insert -->
-        <select class="chzn-select" data-placeholder="Choose a friend...">
-          <option value="">Lend to...</option>
-          <% @friends.each do |f| %>
-            <option value="<%= f.id %>"><%= f.name %></option>
-          <% end %>
-        </select>
-        <!-- end of chosen.js insert -->
         <%= form.text_field :item_name, :placeholder => "What would you like to borrow?" %>
         <%= form.submit "Post", :class => "btn default" %>
       <% end %>
