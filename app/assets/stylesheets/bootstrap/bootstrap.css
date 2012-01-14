@@ -1,10 +1,3 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1326508514.651039:@value{	I"length:EFis‡I"digest;
-F"%87e3eff051fa67524979047aadccc9d0I"source;
-FI"s‡/*
- * This is a manifest file that'll automatically include all the stylesheets available in this directory
- * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
- * the top of the compiled file, but it's generally better to create a new file per style scope.
-*/
 /*!
  * Bootstrap @VERSION
  *
@@ -18,7 +11,6 @@ FI"s‡/*
 /* Reset.less
  * Props to Eric Meyer (meyerweb.com) for his CSS reset file. We're using an adapted version here	that cuts out some of the reset HTML elements we will never need here (i.e., dfn, samp, etc).
  * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-
 html, body {
   margin: 0;
   padding: 0;
@@ -2476,42 +2468,3 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
 }
-/* Mixins */
-.overflow-ellipsis {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  -webkit-text-overflow: ellipsis;
-  -moz-text-overflow: ellipsis;
-  -khtml-text-overflow: ellipsis;
-}
-/* Globals */
-/* ::selection, ::-moz-selection { 
-	color: #FFF; 
-	background: #DDD; 
-} */
-a {
-  text-decoration: none !important;
-  -webkit-transition: color 0.1s linear;
-  -moz-transition: color 0.1s linear;
-  -ms-transition: color 0.1s linear;
-  -o-transition: color 0.1s linear;
-  transition: color 0.1s linear;
-}
-ul, li {
-  list-style: none;
-}
-.clear {
-  clear: both;
-}
-hr {
-  border: none;
-  border-bottom: solid 1px #999;
-  -webkit-box-shadow: 0px 1px 0px #ffffff;
-  -moz-box-shadow: 0px 1px 0px #ffffff;
-  box-shadow: 0px 1px 0px #ffffff;
-}
-/* Main */
-;
-FI"_version;
-F"%5b3cb3e8d21d41a93bd0fb5cf97eda1f

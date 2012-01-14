@@ -1,11 +1,16 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1326508514.651039:@value{	I"length:EFisàI"digest;
-F"%87e3eff051fa67524979047aadccc9d0I"source;
-FI"sà/*
- * This is a manifest file that'll automatically include all the stylesheets available in this directory
- * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
- * the top of the compiled file, but it's generally better to create a new file per style scope.
-*/
-/*!
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1326508514.6468952:@value{I"
+class:EFI"BundledAsset;
+FI"id;
+F"%9f2537baf90f01933accbb7a19d7cb18I"logical_path;
+F"styles.cssI"pathname;
+FI",$root/app/assets/stylesheets/styles.css;
+FI"content_type;
+FI"text/css;
+FI"
+mtime;
+FI"2012-01-13T21:34:35-05:00;
+FI"	body;
+FI"9ß/*!
  * Bootstrap @VERSION
  *
  * Copyright 2011 Twitter, Inc
@@ -2513,5 +2518,14 @@ hr {
 }
 /* Main */
 ;
-FI"_version;
-F"%5b3cb3e8d21d41a93bd0fb5cf97eda1f
+FI"asset_paths;
+F[I",$root/app/assets/stylesheets/styles.css;
+FI"dependency_paths;
+F[{I"	path;
+FI",$root/app/assets/stylesheets/styles.css;
+FI"
+mtime;
+FIu:	TimeÂ€  0Š:@_zoneI"EST;
+T:offsetiþ°¹I"hexdigest;
+F"%9ea4f853dd778b183bedeb0cba9fb654I"_version;
+F"%46dde6621c301f4928e3b34efee9e3b5

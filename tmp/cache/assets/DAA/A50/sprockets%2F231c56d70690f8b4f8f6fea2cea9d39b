@@ -1,11 +1,16 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1326508514.651039:@value{	I"length:EFisàI"digest;
-F"%87e3eff051fa67524979047aadccc9d0I"source;
-FI"sà/*
- * This is a manifest file that'll automatically include all the stylesheets available in this directory
- * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
- * the top of the compiled file, but it's generally better to create a new file per style scope.
-*/
-/*!
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1326508481.378197:@value{I"
+class:EFI"BundledAsset;
+FI"id;
+F"%a0734d68b8cd5707d28dd06c8b530b45I"logical_path;
+F"bootstrap/bootstrap.cssI"pathname;
+FI"9$root/app/assets/stylesheets/bootstrap/bootstrap.css;
+FI"content_type;
+FI"text/css;
+FI"
+mtime;
+FI"2012-01-13T21:34:19-05:00;
+FI"	body;
+FI";Ü/*!
  * Bootstrap @VERSION
  *
  * Copyright 2011 Twitter, Inc
@@ -2476,42 +2481,15 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
 }
-/* Mixins */
-.overflow-ellipsis {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  -webkit-text-overflow: ellipsis;
-  -moz-text-overflow: ellipsis;
-  -khtml-text-overflow: ellipsis;
-}
-/* Globals */
-/* ::selection, ::-moz-selection { 
-	color: #FFF; 
-	background: #DDD; 
-} */
-a {
-  text-decoration: none !important;
-  -webkit-transition: color 0.1s linear;
-  -moz-transition: color 0.1s linear;
-  -ms-transition: color 0.1s linear;
-  -o-transition: color 0.1s linear;
-  transition: color 0.1s linear;
-}
-ul, li {
-  list-style: none;
-}
-.clear {
-  clear: both;
-}
-hr {
-  border: none;
-  border-bottom: solid 1px #999;
-  -webkit-box-shadow: 0px 1px 0px #ffffff;
-  -moz-box-shadow: 0px 1px 0px #ffffff;
-  box-shadow: 0px 1px 0px #ffffff;
-}
-/* Main */
 ;
-FI"_version;
-F"%5b3cb3e8d21d41a93bd0fb5cf97eda1f
+FI"asset_paths;
+F[I"9$root/app/assets/stylesheets/bootstrap/bootstrap.css;
+FI"dependency_paths;
+F[{I"	path;
+FI"9$root/app/assets/stylesheets/bootstrap/bootstrap.css;
+FI"
+mtime;
+FIu:	TimeÂ€  0‰:@_zoneI"EST;
+T:offsetiþ°¹I"hexdigest;
+F"%3cb6afa896095a477e546badbc3dd9a4I"_version;
+F"%46dde6621c301f4928e3b34efee9e3b5
