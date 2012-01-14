@@ -1,8 +1,12 @@
+<% render :partial => 'layouts/toolbar' %>
+
 <div id="user-profile">
     <% image_tag [image path], :id => "user-profile-picture" %> <!-- PLEASE CHANGE -->
     <h1 id="user-profile-name"><%= @user.name %></h1>
     <p><% link_to image_tag([Facebook logo]), path_to(@user_facebook) %></p> <!-- PLEASE CHANGE -->
 </div>
+
+<% render :userbox => 'layouts/userbox' %>
 
 <div id="user-feed">
     <h1><%= @user.name%>'s history</h1>
