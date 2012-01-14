@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
     existing = User.where("fb_id = ?", auth_hash[:uid]).first
     
     if existing.nil?
-      User.new(
+      User.create(
         :first_name => auth_hash[:info][:first_name],
         :last_name => auth_hash[:info][:last_name],
         :email => auth_hash[:info][:email],

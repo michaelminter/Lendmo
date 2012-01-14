@@ -1,21 +1,13 @@
-<p id="notice"><%= notice %></p>
+<%= render :partial => 'layouts/header' %>
 
-<p>
-  <b>First name:</b>
-  <%= @user.first_name %>
-</p>
+<div class="main container">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Last name:</b>
-  <%= @user.last_name %>
-</p>
+  <div id="profile" class="span12">
+    <%= image_tag("http://graph.facebook.com/#{@user.fb_id}/picture") %>
+    <h2><a href="<%= @user.url %>"><%= @user.name %></a></h2>
+    <p><%= @user.email %></p>
+  </div>
 
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-<%= debug @user %>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <%= debug @user %>
+</div>
