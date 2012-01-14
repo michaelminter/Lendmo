@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
         item = Item.find(:item_id)
         lender = User.find(item.user_id)
         borrower = User.find(item.borrower_id)
-        if (self.isLending?)
+        if (self.islending?)
         lender.name + " lent " + item.name + 
             " to " + borrower.name
         else
