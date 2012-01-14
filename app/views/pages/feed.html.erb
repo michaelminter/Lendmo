@@ -1,0 +1,17 @@
+<%= render :partial => 'layouts/header' %>
+
+<div class="main container">
+  <p id="notice"><%= notice %></p>
+
+  <table id="feed" class="span12">
+    <tbody>
+    <% if @events.empty? %>
+      No lending activity found among your friends.
+    <% else %>
+      <%= render :partial => 'posts/feed_item', :collection => @events %>
+    <% end %>
+    </tbody>
+  </table>
+  
+  <%= debug session %>
+</div>

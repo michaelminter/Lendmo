@@ -2551,3 +2551,13 @@ hr {
 .main {
   margin-top: 20px;
 }
+#profile {
+  padding-left: 60px;
+}
+#profile img {
+  float: left;
+  margin-left: -60px;
+}
+#user-feed {
+  margin-bottom: 10px;
+}

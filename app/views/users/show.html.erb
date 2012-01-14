@@ -1,3 +1,5 @@
+<% @events = @user.activity_events %>
+
 <%= render :partial => 'layouts/header' %>
 
 <div class="main container">
@@ -13,16 +15,14 @@
 
   <div id="user-feed">
     <h3><%= @user.first_name %>'s Lendmo activity</h3>
-    <div class="feed">
-      
+    <div class="activity">
+      <% if @events.empty? %>
+        No lending activity for this user.
+      <% else %>
+        <%= render :partial => 'posts/feed_item', :collection => @events %>
+      <% end %>
     </div>
   </div>
-  
-  <% @user.friends(session[:token]).each do |friend| %>
-    <% if User.exists(friend.identifier) %>
-      <%= friend.name %> <br/>
-    <% end %>
-  <% end %>
   
   <%= debug session %>
 </div>

@@ -1,17 +1,19 @@
-<tr class="event">
-    <% lender = event.item.get_lender %>
-    <%= image_tag lender.profile_picture, :class => "event-profile-pic" %>
-    <td class="details">
-        <h1><%= lender.name %></h1>
-        <p><%= event.description %></p>
-    </td>
+<% @event = feed_item %>
 
-    <ol class="comments">
-        <% event.comments.each do |comment| %>
-            <% commenter = comment.user %>
-            <%= image_tag commenter.profile_picture, :class => "comment-profile-pic" %>
-            <h1><%= commenter.name %></h1>
-            <p><%= comment.content %></p>
-        <% end %>
-    </ol>
+<tr class="event">
+  <% lender = @event.lender %>
+  <%= image_tag lender.profile_picture, :class => "event-profile-pic" %>
+  <td class="details">
+    <h1><%= lender.name %></h1>
+    <p><%= @event.description %></p>
+  </td>
+
+  <ol class="comments">
+    <% @event.comments.each do |comment| %>
+      <% commenter = comment.user %>
+      <%= image_tag commenter.profile_picture, :class => "comment-profile-pic" %>
+      <h1><%= commenter.name %></h1>
+      <p><%= comment.content %></p>
+    <% end %>
+  </ol>
 </tr>

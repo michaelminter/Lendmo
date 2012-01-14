@@ -23,9 +23,27 @@ class User < ActiveRecord::Base
     end
   end
   
+  def feed_events(token)
+    friends = self.friends(token)
+    events = []
+    friends.each do |f|
+      friend = User.where(:fb_id => f.identifier).first
+      if !friend.nil?
+        Event.where("lender_id = ? || borrower_id = ?", friend.id, friend.id).each do |e|
+          events << e unless e.nil?
+        end
+      end
+    end
+    events
+  end
+  
+  def activity_events()
+    Event.where("lender_id = ? || borrower_id = ?", self.id, self.id)
+  end
+  
   def self.exists(fb_id)
-    existing = User.where("fb_id = ?", fb_id).first
-    return existing != nil
+    existing = User.where(:fb_id => fb_id).first
+    return !existing.nil?
   end
   
   # Select a random user from the database

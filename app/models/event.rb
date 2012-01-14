@@ -4,23 +4,20 @@ class Event < ActiveRecord::Base
     
     def description
         item = Item.find(:item_id)
-        lender = User.find(item.user_id)
-        borrower = User.find(item.borrower_id)
-        if (self.isLending?)
-        lender.name + " lent " + item.name + 
-            " to " + borrower.name
+        lender = User.find(:lender_id)
+        borrower = User.find(:borrower_id)
+        if (self.islending?)
+          lender.name + " lent " + item.name + " to " + borrower.name
         else
-        borrower.name + " returned " item.name + " to " + lender.name
+          borrower.name + " returned " + item.name + " to " + lender.name
         end
     end
 
-    def get_lender
-        item = Item.find(:item_id)
-        User.find(item.user_id)
+    def lender()
+        User.find(self.lender_id)
     end
 
-    def get_borrower
-        item = Item.find(:item_id)
-        User.find(item.borrower_id)
+    def borrower()
+        User.find(self.borrower_id)
     end
 end
