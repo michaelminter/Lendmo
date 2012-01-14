@@ -1,78 +1,13 @@
-<link href='http://fonts.googleapis.com/css?family=Viga' rel='stylesheet' type='text/css'>
-<style type = 'text/css'>
-
-#connect_button
-{
-    display:block; 
-    width:254px; 
-    height: 45px; 
-    color: white;
-    background-image: url('app/assets/images/facebook.png');
-    margin-left:auto;
-    margin-right:auto;
-    font-size:15px;
-
-    margin-top:auto;
-    margin-bottom:auto;
-    line-height:3em;
-}
-
-.container
-{
-    font-family: Viga;
-    color: white;   
-}
-
-.hero-unit
-{
-/* Old browsers */
-    background: #006400; 
-    /* FF3.6+ */
-    background: -moz-linear-gradient(top,  #006400 0%, #84d69a 100%); 
-    /* Chrome,Safari4+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#006400), color-stop(100%,#84d69a)); 
-    /* Chrome10+,Safari5.1+ */
-    background: -webkit-linear-gradient(top,  #006400 0%,#84d69a 100%); 
-    /* Opera 11.10+ */
-    background: -o-linear-gradient(top,  #006400 0%,#84d69a 100%);
-    /* IE10+ */
-    background: -ms-linear-gradient(top,  #006400 0%,#84d69a 100%); 
-    /* W3C */
-    background: linear-gradient(top,  #006400 0%,#84d69a 100%); 
-    /* IE6-9 */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006400', endColorstr='#84d69a',GradientType=0 ); 
-
-    color: white;
-}
-
-.hero-unit h1
-{
-    color: white;
-    text-shadow: 0.05em 0.05em #333;
-}
-
-.hero-unit h2
-{
-    color: white;
-}
-</style>
-
-<!--<div id="landing-header">
-<%= render :partial => 'layouts/header' %>
-</div>-->
-
-<div class="container">
-  <div class="hero-unit">
-    <h1>Lendmo</h1>
-    <h3>Social Lending</h3>
-    <p>Lendmo is a unique and fun way to keep track of your possessions which you've lent to your friends!</p>
-    
-    <a href='/auth/facebook'>
-        <span id="connect_button">
-            &nbsp &nbsp &nbsp &nbsp &nbsp Connect using Facebook
-        </span>
-    </a>
-  </div>
+<div class="hero-unit">
+  <h1>Lendmo</h1>
+  <h2>SHARING IS CARING</h2>
+  <p>And Lendmo helps you keep track of who has what.</p>
   
-  <%= debug session %>
+  <a href="/auth/facebook">
+      <button class="btn large primary" id="connect-button">
+          Login with Facebook
+      </button>
+  </a>
 </div>
+
+<%= debug session %>

@@ -43,7 +43,14 @@ hr {
 }
 
 /* Main */
+html, body { 
+	background-color: #eee; 
+	height: 100%;
+}
+
 #landing-header {
+	display: none;
+	
 	#header {
 		background: #333;
 		color: #EEE;
@@ -57,14 +64,15 @@ hr {
 }
 
 #header {
-	background: #EEE;
+	background: #333;
 	padding: 5px 0;
 	
+	.container { width: 840px; }
 	h1 { float: left; margin: 0; }
 	a { 
 		float: right; 
-		color: #444;
-		&:hover { color: #000; }
+		color: #DDD;
+		&:hover { color: #FFF; }
 	}
 	ul {
 		float: right;
@@ -75,12 +83,51 @@ hr {
 
 .hero-unit {
 	text-align: center;
-	h1 { font-size: 120px; }
-	h3 { font-weight: normal; }
+	font-family: 'Viga';
+	height: 100%;
+	padding-top: 200px;
+	#gradient .vertical(#006400, #84d69a);
+	.border-radius(0px 0px 5px 5px);
+	
+	h1, h2, h3, p { color: white; }
+	h1 { 
+		font-size: 120px; 
+		text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+	}
+	
+	#connect-button {
+		width: 254px;
+		height: 45px;
+		background-image: url('/assets/facebook.png');
+		background-color: transparent;
+		border: none;
+		font-size: 16px;
+		.box-shadow(none);
+		.transition(none);
+		&:hover {
+			background-position: 0px -45px;
+		}
+	}
 }
 
 .main {
-	margin-top: 20px; 
+	width: 840px;
+	h1, h2, h3, h4, h5 { font-family: 'Viga'; }
+	
+	.content {
+		background-color: #fff;
+		padding: 20px;
+		margin: 0 -20px;
+		.border-radius(0px 0px 6px 6px);
+		.box-shadow(0 1px 2px rgba(0,0,0,.15));
+	}
+	
+	.page-header {
+		background-color: #f5f5f5;
+		padding: 30px 20px 25px;
+		margin: -20px -20px 20px;
+		font-size: 25px;
+	}
 }
 
 #profile {
@@ -90,5 +137,4 @@ hr {
 
 #user-feed {
 	margin-bottom: 10px;
-	
 }

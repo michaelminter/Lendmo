@@ -1,45 +1,65 @@
 <%= render :partial => 'layouts/header' %>
 
 <div class="main container">
-  <p id="notice"><%= notice %></p>
+  
+  <div class="content">
+    <div class="page-header">
+      <div id="actions">
+        <%= button_tag "Lend", :id => "lend", :class => "btn large primary" %>
+        <%= button_tag "Borrow", :id => "borrow", :class => "btn large success" %>
+      </div>
+      
+      <%= form_for @item, :html => {:class => "lend-form"} do |form| %>
+        <select class="chzn-select" data-placeholder="Choose a friend...">
+          <option value="">Lend to...</option>
+          <% @friends.each do |f| %>
+            <option value="<%= f.id %>"><%= f.name %></option>
+          <% end %>
+        </select>
+        <%= form.text_field :name, :placeholder => "Item name" %>
+        <%= form.submit "Post", :class => "btn default" %>
+      <% end %>
 
-  <div id="actions">
-    <%= button_tag "Lend", :id => "lend", :class => "btn large primary" %>
-    <%= button_tag "Borrow", :id => "borrow", :class => "btn large success" %>
+      <%= form_for @event, :html => {:class => "borrow-form"} do |form| %>
+        <%= form.text_field :item_name, :placeholder => "What would you like to borrow?" %>
+        <%= form.submit "Post", :class => "btn default" %>
+      <% end %>
+    </div>
+    
+    <div class="row">
+      <div class="span10">
+        <p id="notice"><%= notice %></p>
+
+        <ul class="tabs">
+          <li class="active"><a href="#">Lending Activity</a></li>
+          <li><a href="#">What You Owe</a></li>
+          <li><a href="#">What You Are Owed</a></li>
+        </ul>
+        
+        <table id="feed" class="span12">
+          <tbody>
+          <% if @events.empty? %>
+            No lending activity found among your friends.
+          <% else %>
+            <%= render :partial => 'posts/feed_item', :collection => @events %>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="span4 sidebar">
+        <h3>Sidebar</h3>
+        <div class="sidebar-content">
+          Content
+        </div>
+      </div>
+    </div>
   </div>
-  
-  <%= form_for @item do |form| %>
-    <fieldset>
-      <select class="chzn-select" data-placeholder="Choose a friend...">
-        <option value="">Lend to...</option>
-        <% @friends.each do |f| %>
-          <option value="<%= f.id %>"><%= f.name %></option>
-        <% end %>
-      </select>
-    </fieldset>
-    <fieldset>
-      <%= form.text_field :name, :placeholder => "Item name" %>
-    </fieldset>
-    <%= form.submit "Post", :class => "btn default" %>
-  <% end %>
-  
-  <%= form_for @event do |form| %>
-    <fieldset>
-      <%= form.text_field :item_name, :placeholder => "What would you like to borrow?" %>
-    </fieldset>
-    <%= form.submit "Post", :class => "btn default" %>
-  <% end %>
-  
-  <h3>Lending Activity</h3>
-  <table id="feed" class="span12">
-    <tbody>
-    <% if @events.empty? %>
-      No lending activity found among your friends.
-    <% else %>
-      <%= render :partial => 'posts/feed_item', :collection => @events %>
-    <% end %>
-    </tbody>
-  </table>
+
+  <footer>
+    <p>&copy; AD JZ DG JM</p>
+  </footer>
   
   <%= debug session %>
-</div>
+
+</div> <!-- /container -->
