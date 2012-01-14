@@ -5,9 +5,7 @@ class AuthController < ApplicationController
   end
   
   def callback
-    access_token = client.auth_code.get_token('authorization_code_value', :redirect_uri => redirect_uri)
-    logger.info access_token.code
-    logger.info access_token.description
+    access_token = client.auth_code.get_token(params[:code], :redirect_uri => redirect_uri)
     session[:fb_user] = JSON.parse(access_token.get('/me'))
     
     redirect_to :controller => :pages,
