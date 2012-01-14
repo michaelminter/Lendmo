@@ -42,7 +42,8 @@ class User < ActiveRecord::Base
     i.destroy
   end
   def lend(item, borrower, value)
-    i = Item.new(:name => item, :user_id => self.id, :borrower_id => borrower, :value => value)
+    i = self.items.build(:name => item, :user_id => self.id, :borrower_id =>, borrower, :value => value)
+    i.save 
     Event.create(:item_id => i.id, :isLending => true)
   end
 
