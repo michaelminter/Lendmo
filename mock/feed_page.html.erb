@@ -1,0 +1,30 @@
+<div id="Buttons">
+    <button id="Lend_Button">Lend</button>
+    <button id="Borrow_Button">Borrow</button>
+</div>
+
+<div id="Lend_Form">    
+    <%= form_for @event do |event_form_builder| %>
+        <!--Remember to edit the things like :Borrower_id to the right names. This is the field for lend to-->
+        <div>
+            <!--this either associates a database column with a label or puts the column name in the label-->
+            <%= event_form_builder.label :Borrower_id %> 
+            <!--This line select/searches the borrower id column, the displayed collection is @friends, :user_id is the attribute value that will appear in the params hash, :name is what will be displayed. Note that :name might be a join of :first_name and :last_name?-->
+            <!--Remember to add @friends = User.friends or whatever is the right thing to create an instance variable of friends-->
+            <%= event_form_builder.collection_select(:Borrower_id, @friends, :user_id, :name %>
+        </div>
+
+        <div>
+            <%= event_form_builder.label :item_id%>
+            <!--replace the particular database columns with the right ones and also remember to create instance variable-->
+            <%= event_form_builder.collection_select(:item_id, @items, :item_id, :item_name %>
+        </div>
+        <%= event_form_builder.submit 'Post' %>
+    <% end %>
+</div>
+
+<!--idk add like userbox and toolbar somewhere in this file-->
+
+<div id="Feedbox">
+        
+</div>
