@@ -44,6 +44,8 @@ hr {
 
 /* Main */
 #landing-header {
+	display: none;
+	
 	#header {
 		background: #333;
 		color: #EEE;
@@ -75,8 +77,23 @@ hr {
 
 .hero-unit {
 	text-align: center;
+	font-family: 'Viga';
+	
 	h1 { font-size: 120px; }
 	h3 { font-weight: normal; }
+	
+	#connect-button {
+		width: 254px;
+		height: 45px;
+		background-image: url('/assets/facebook.png');
+		background-color: transparent;
+		border: none;
+		font-size: 16px;
+		.transition(none);
+		&:hover {
+			background-position: 0px -45px;
+		}
+	}
 }
 
 .main {
@@ -90,5 +107,4 @@ hr {
 
 #user-feed {
 	margin-bottom: 10px;
-	
 }

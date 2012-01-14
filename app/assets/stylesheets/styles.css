@@ -2500,6 +2500,9 @@ hr {
   box-shadow: 0px 1px 0px #ffffff;
 }
 /* Main */
+#landing-header {
+  display: none;
+}
 #landing-header #header {
   background: #333;
   color: #EEE;
@@ -2541,12 +2544,29 @@ hr {
 }
 .hero-unit {
   text-align: center;
+  font-family: 'Viga';
 }
 .hero-unit h1 {
   font-size: 120px;
 }
 .hero-unit h3 {
   font-weight: normal;
+}
+.hero-unit #connect-button {
+  width: 254px;
+  height: 45px;
+  background-image: url('/assets/facebook.png');
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+.hero-unit #connect-button:hover {
+  background-position: 0px -45px;
 }
 .main {
   margin-top: 20px;
