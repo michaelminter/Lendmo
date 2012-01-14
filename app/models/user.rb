@@ -24,5 +24,7 @@ class User < ActiveRecord::Base
       find(:first, :offset =>rand(c))
     end
   end
-  
+  def lend
+
+  end
 end
