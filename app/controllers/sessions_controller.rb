@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     user = User.find_or_create(auth_hash)
     sign_in user
     session[:token] = auth_hash[:credentials][:token]
-    redirect_to user
+    redirect_to '/feed'
   end
   
   def destroy

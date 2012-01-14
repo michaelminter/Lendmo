@@ -1,6 +1,5 @@
 class Event < ActiveRecord::Base
     has_many :comments
-    validates :item_id, :presence => true
     
     def description
         item = Item.find(:item_id)

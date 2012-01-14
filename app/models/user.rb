@@ -16,18 +16,27 @@ class User < ActiveRecord::Base
   
   # Grab the list of Facebook friends using Lendmo
   def friends(token)
+    friends = []
+    
     if not token.nil?
       fbUser = FbGraph::User.new(self.fb_id, :access_token => token)
       fbUser = fbUser.fetch
-      fbUser.friends
+      fbUser.friends.each do |f|
+        user = User.exists(f.identifier)
+        if !user.nil?
+          friends << user
+        end
+      end
     end
+    
+    friends
   end
   
   def feed_events(token)
     friends = self.friends(token)
     events = []
     friends.each do |f|
-      friend = User.where(:fb_id => f.identifier).first
+      friend = User.where(:fb_id => f.fb_id).first
       if !friend.nil?
         Event.where("lender_id = ? || borrower_id = ?", friend.id, friend.id).each do |e|
           events << e unless e.nil?
@@ -43,7 +52,6 @@ class User < ActiveRecord::Base
   
   def self.exists(fb_id)
     existing = User.where(:fb_id => fb_id).first
-    return !existing.nil?
   end
   
   # Select a random user from the database
@@ -53,15 +61,15 @@ class User < ActiveRecord::Base
     end
   end
 
-  # Lend an item to a friend
   def return(item_id)
     Event.create(:item_id => i, :isLending => false)
     i = Item.find(item_id)
     i.destroy
   end
+  
   def lend(item, borrower, value)
-    i = self.items.build(:name => item, :user_id => self.id, :borrower_id =>, borrower, :value => value)
-    i.save 
+    i = self.items.build(:name => item, :user_id => self.id, :borrower_id => borrower.id, :value => value)
+    i.save
     Event.create(:item_id => i.id, :isLending => true)
   end
 
@@ -81,4 +89,5 @@ class User < ActiveRecord::Base
       existing
     end
   end
+  
 end

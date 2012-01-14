@@ -3,6 +3,34 @@
 <div class="main container">
   <p id="notice"><%= notice %></p>
 
+  <div id="actions">
+    <%= button_tag "Lend", :id => "lend", :class => "btn large primary" %>
+    <%= button_tag "Borrow", :id => "borrow", :class => "btn large success" %>
+  </div>
+  
+  <%= form_for @item do |form| %>
+    <fieldset>
+      <select class="chzn-select" data-placeholder="Choose a friend...">
+        <option value="">Lend to...</option>
+        <% @friends.each do |f| %>
+          <option value="<%= f.id %>"><%= f.name %></option>
+        <% end %>
+      </select>
+    </fieldset>
+    <fieldset>
+      <%= form.text_field :name, :placeholder => "Item name" %>
+    </fieldset>
+    <%= form.submit "Post", :class => "btn default" %>
+  <% end %>
+  
+  <%= form_for @event do |form| %>
+    <fieldset>
+      <%= form.text_field :item_name, :placeholder => "What would you like to borrow?" %>
+    </fieldset>
+    <%= form.submit "Post", :class => "btn default" %>
+  <% end %>
+  
+  <h3>Lending Activity</h3>
   <table id="feed" class="span12">
     <tbody>
     <% if @events.empty? %>
