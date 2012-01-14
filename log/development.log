@@ -113,3 +113,38 @@ Served asset /users.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-13 21:07:44 -0500
 Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-01-13 21:56:54 -0500
+  Processing by ApplicationController#index as HTML
+Rendered layouts/home.html.erb within layouts/application (21.6ms)
+Cache for Asset (application.js) is stale
+/Users/adi/.rvm/gems/ruby-1.9.3-p0/gems/jquery-rails-1.0.19/vendor/assets/javascripts/jquery.js isn't in paths: /home/dange/Lendmo/app/assets/images, /home/dange/Lendmo/app/assets/javascripts, /home/dange/Lendmo/app/assets/stylesheets, /home/dange/Lendmo/vendor/assets/stylesheets, /home/dange/.rvm/gems/ruby-1.9.2-p290/gems/jquery-rails-1.0.19/vendor/assets/javascripts
+Compiled application.js  (4ms)  (pid 4196)
+Compiled jquery.js  (33ms)  (pid 4196)
+Compiled jquery_ujs.js  (0ms)  (pid 4196)
+Completed 200 OK in 256ms (Views: 255.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2012-01-13 21:56:56 -0500
+Served asset /styles.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-01-13 21:56:56 -0500
+Served asset /jquery.js - 200 OK (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-13 21:56:56 -0500
+Served asset /jquery_ujs.js - 200 OK (4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-01-13 21:56:56 -0500
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2012-01-13 21:56:56 -0500
+Served asset /users.js - 200 OK (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-13 21:56:56 -0500
+Served asset /application.js - 200 OK (0ms)
