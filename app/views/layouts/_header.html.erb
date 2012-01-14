@@ -2,5 +2,6 @@
   <div class="container">
     <h1>Lendmo</h1>
     <%= link_to("Logout", :controller => "sessions", :action => "destroy") %>
+    <%= link_to current_user.name, current_user %>
   </div>
 </div>

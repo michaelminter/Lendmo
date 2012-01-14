@@ -1,7 +1,9 @@
-<div id="Activity_Form">
+<div id="Buttons">
     <button id="Lend_Button">Lend</button>
     <button id="Borrow_Button">Borrow</button>
-    
+</div>
+
+<div id="Lend_Form">    
     <%= form_for @event do |event_form_builder| %>
         <!--Remember to edit the things like :Borrower_id to the right names. This is the field for lend to-->
         <div>
@@ -19,4 +21,10 @@
         </div>
         <%= event_form_builder.submit 'Post' %>
     <% end %>
+</div>
+
+<!--idk add like userbox and toolbar somewhere in this file-->
+
+<div id="Feedbox">
+        
 </div>

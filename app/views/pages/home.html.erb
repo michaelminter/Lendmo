@@ -1,11 +1,18 @@
-<%= render :partial => 'layouts/header' %>
+<div class = 'container'>
+  <h1 id='landing_title'>Lendmo</h1>
 
-<div class="container">
-  <h1>Lendmo, the social lending platform!</h1>
-
-  <% if (@token) %>
-    <a href="/logout"><button class="btn large danger">Logout</button></a>
-  <% else %>
-    <a href="/auth/facebook"><button class="btn large primary">Login with Facebook</button></a>
-  <% end %>
+  <div id='landing_info'>
+    <p id='landing_catchphrase'>SHARING IS CARING</p>
+    <p id='landing_catchphrase2'>And Lendmo helps you keep track of who has what.</p>
+  </div>
+  
+  <div id='landing_connect'>
+    <span id='connect_button'>
+    <% if (@token) %>
+      <a href='/logout'><button class="btn large danger">Logout</button></a>
+    <% else %>
+      <a href='/auth/facebook'><button class="btn large primary">Login with Facebook</button></a>
+    <% end %>
+    </span>
+  </div>
 </div>

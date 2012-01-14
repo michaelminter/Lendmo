@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :items
+  
   validates :first_name,  :presence => true,
                           :length   => { :maximum => 63 }
   validates :last_name,   :presence => true,

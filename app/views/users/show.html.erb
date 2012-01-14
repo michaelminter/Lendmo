@@ -8,6 +8,15 @@
     <h2><a href="<%= @user.url %>"><%= @user.name %></a></h2>
     <p><%= @user.email %></p>
   </div>
+  
+  <% render :partial => 'layouts/userbox' %>
 
+  <div id="user-feed">
+    <h1><%= @user.first_name %>'s Lendmo activity</h1>
+    <div class="feed">
+      
+    </div>
+  </div>
+  
   <%= debug @user %>
 </div>

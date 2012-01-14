@@ -2478,10 +2478,6 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   -khtml-text-overflow: ellipsis;
 }
 /* Globals */
-/* ::selection, ::-moz-selection { 
-	color: #FFF; 
-	background: #DDD; 
-} */
 a {
   text-decoration: none !important;
   -webkit-transition: color 0.1s linear;
