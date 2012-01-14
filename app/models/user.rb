@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   
   # Find the user trying to sign in, or create a new one if they're new
   def self.find_or_create(auth_hash)
-    existing = User.where("fb_id = ?", auth_hash[:uid])
+    existing = User.where("fb_id = ?", auth_hash[:uid]).first
     
     if existing.nil?
       User.new(
