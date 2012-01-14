@@ -2,7 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
 
-gem 'oauth2', :git => 'git://github.com/intridea/oauth2.git'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'execjs'
 gem 'therubyracer'
 

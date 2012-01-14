@@ -1,26 +1,22 @@
-<% render :partial => 'layouts/toolbar' %>
+<%= render :partial => 'layouts/header' %>
 
-<div id="user-profile">
-    <% image_tag [image path], :id => "user-profile-picture" %> <!-- PLEASE CHANGE -->
-    <h1 id="user-profile-name"><%= @user.name %></h1>
-    <p><% link_to image_tag([Facebook logo]), path_to(@user_facebook) %></p> <!-- PLEASE CHANGE -->
-</div>
+<div class="main container">
+  <p id="notice"><%= notice %></p>
 
-<% render :userbox => 'layouts/userbox' %>
+  <div id="profile" class="span12">
+    <%= image_tag("http://graph.facebook.com/#{@user.fb_id}/picture") %>
+    <h2><a href="<%= @user.url %>"><%= @user.name %></a></h2>
+    <p><%= @user.email %></p>
+  </div>
+  
+  <% render :partial => 'layouts/userbox' %>
 
-<div id="user-feed">
-    <h1><%= @user.name%>'s history</h1>
+  <div id="user-feed">
+    <h1><%= @user.first_name %>'s Lendmo activity</h1>
     <div class="feed">
-        <!-- for-loop to get feed items -->
+      
     </div>
+  </div>
+  
+  <%= debug @user %>
 </div>
-<!--
-<% if @user.name == session.user_name %>
-<div id="user-me-feed">
-    <h1>You and <%= @user_name %></h1>
-
-    <div class="feed">
-        <!-- for loop code to get feed items -->
-    </div>
-</div> -->
-<% end %>

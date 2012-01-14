@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(:version => 20120114092803) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "url"
+    t.string   "fb_id"
   end
 
 end

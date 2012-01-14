@@ -1,10 +1,7 @@
 <div id="header">
-    <h1 id="logo">Lendmo</h1>
-    <!-- Can be replaced with an image -->
-    <!-- <img id="logo" src="" /> -->
-
-    <ol id="header-right">
-        <li><% link_to @user.name, profile_path(@user.name) %></li>
-        <li><% link_to "Log out", (path to log out page) %></li> <!-- PLEASE EDIT -->
-    </ol>
+  <div class="container">
+    <h1>Lendmo</h1>
+    <%= link_to("Logout", :controller => "sessions", :action => "destroy") %>
+    <%= link_to current_user.name, current_user %>
+  </div>
 </div>
