@@ -92,5 +92,15 @@ class User < ActiveRecord::Base
       existing
     end
   end
+
+  def create_venmo_url(item)
+    value = item.value
+    name  = item.name
+    borrower_email = User.find(item.borrower_id).email
+    
+    note = URI.escape("Paying you #{name} that I borrowed through Lendmo")
+    
+    "https://venmo.com/?txn=pay&amount=#{value}&note=#{note}&recipients=#{borrower_email}"
+  end
   
 end
