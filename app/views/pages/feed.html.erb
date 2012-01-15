@@ -1,4 +1,5 @@
 <%= javascript_include_tag "form" %>
+<%= javascript_include_tag "bootstrap-tabs" %>
 <%= render :partial => 'layouts/header' %>
 
 <div class="main container">
@@ -6,8 +7,8 @@
   <div class="content">
     <div class="page-header">
       <div id="actions">
-        <%= button_tag "Lend", :id => "lend", :class => "btn large primary" %>
-        <%= button_tag "Borrow", :id => "borrow", :class => "btn large success" %>
+        <%= button_tag "GIVE", :id => "lend", :class => "btn large success" %>
+        <%= button_tag "GET", :id => "borrow", :class => "btn large success" %>
       </div>
       
       <%= form_for [@user, @item], :html => {:id => "lend-form"} do |form| %>
@@ -19,7 +20,7 @@
           <% end %>
         </select>
         <!-- end of chosen.js insert -->
-          
+        
         <% form.hidden_field :user_id, :value => @user.id %>
         <%= form.text_field :name, :placeholder => "Item name" %>
         <%= form.text_field :value, :placeholder => "Item value (optional)", :default => "10" %>
@@ -36,21 +37,32 @@
       <div class="span10">
         <p id="notice"><%= notice %></p>
 
-        <ul class="tabs">
-          <li class="active"><a href="#">Lending Activity</a></li>
-          <li><a href="#">What You Owe</a></li>
-          <li><a href="#">What You Are Owed</a></li>
+        <ul class="tabs" data-tabs='tabs'>
+          <li class="active"><a href="#lending">Lending Activity</a></li>
+          <li><a href="#owe">What You Owe</a></li>
+          <li><a href="#owed">What You Are Owed</a></li>
         </ul>
-        
-        <div id="feed">
-        <% if @events.empty? %>
-          No lending activity found among your friends.
-        <% else %>
-          <%= render :partial => 'posts/feed_item', :collection => @events %>
-        <% end %>
+
+        <div class='tab-content'>
+          <div class='active' id='lending'>
+            <div id="feed">
+            <% if @events.empty? %>
+              No lending activity found among your friends.
+            <% else %>
+              <%= render :partial => 'posts/feed_item', :collection => @events %>
+            <% end %>
+            </div>
+          </div>
+          
+          <div id='owe'>
+              This is the stuff you owe.
+          </div>
+          
+          <div id='owed'>
+              This is stuff that is owed to you.
+          </div>
         </div>
-        
-      </div>
+      </div> <!-- span10 end -->
       
       <div class="span4 sidebar">
         <h3>Sidebar</h3>
