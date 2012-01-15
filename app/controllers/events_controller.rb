@@ -1,9 +1,9 @@
 class EventsController < ApplicationController
   def create
-    params[:event][:borrower_id] = params[:borrower_id]
-    params[:event][:islending] = false
     @user = User.find(current_user)
-    @event = Event.build(params[:event])
+    params[:event][:borrower_id] = @user.id 
+    params[:event][:islending] = false
+    @event = Event.create(params[:event])
     
     respond_to do |format|
       if @event.save

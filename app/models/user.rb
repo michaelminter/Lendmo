@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
     friends.each do |f|
       friend = User.where(:fb_id => f.fb_id).first
       if !friend.nil?
-        Event.where("lender_id = ? OR borrower_id = ?", friend.id, friend.id).each do |e|
+        Event.where("lender_id = ? OR borrower_id = ? OR borrower_id = ?", friend.id, friend.id, self.id).each do |e|
           events << e unless e.nil?
         end
       end
