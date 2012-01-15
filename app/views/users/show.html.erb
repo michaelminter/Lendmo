@@ -22,7 +22,7 @@
           <% end %>
         </div>
         
-        <%= will_paginate @events %>
+        <%= will_paginate @events unless @events.empty? %>
       </div>
       
       <div class="span4 sidebar">

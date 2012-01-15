@@ -1,6 +1,8 @@
 class Event < ActiveRecord::Base
   has_many :comments
   
+  default_scope :order => 'events.created_at DESC'
+  
   def description()
     borrower = User.find(self.borrower_id)
     if(lender_id.nil?)

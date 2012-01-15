@@ -71,9 +71,32 @@ class User < ActiveRecord::Base
     item.destroy
   end
   
-  def lend(item, borrower)
+  def lend(item, borrower, token)
+    if !token.nil?
+      # Post a Facebook Open Graph action for this lend operation
+      uri = URI('https://graph.facebook.com/me/lendmo-app:lend')
+      req = Net::HTTP::Post.new(uri.path)
+      req.set_form_data('item' => 'http://samples.ogp.me/222418151177756', 'access_token' => token)
+      res = Net::HTTP.start(uri.hostname, uri.port) do |http|
+        http.request(req)
+      end
+    end
+    
     self.num_lends += 1
     Event.create(:item_id => item.id, :borrower_id => borrower.id, :lender_id => self.id, :item_name => item.name, :islending => true)
+  end
+  
+  # Post a status to user's Facebook wall about his borrow request
+  def post_borrow_status(event, token)
+    if not token.nil?
+      me = FbGraph::User.me(token)
+      me.feed!(
+        :message => "I'm looking to borrow #{event.item_name} on Lendmo. Can anyone help me out?",
+        :link => "http://lendmo.heroku.com/users/#{self.id}",
+        :name => "Lendmo",
+        :description => "A social lending platform"
+      )
+    end
   end
 
   # Find the user trying to sign in, or create a new one if they're new
