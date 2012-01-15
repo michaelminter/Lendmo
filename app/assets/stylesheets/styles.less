@@ -177,6 +177,13 @@ p, f { font-weight: 300 !important; }
 	img { float: left; margin-left: -60px; }
 }
 
+#badge-notice {
+	padding: 4px 0;
+	text-align: center;
+	width: 100%;
+	background: #F4A83D;
+}
+
 #feed {
 	.event {
 		width: 100%;
@@ -186,7 +193,8 @@ p, f { font-weight: 300 !important; }
 		
 		img { 
 			float: left; 
-			width: 40px; 
+			width: 40px;
+			&:hover { .box-shadow(0px 0px 3px #333); }
 		}
 		.arrow { 
 			float: left; 
@@ -201,13 +209,14 @@ p, f { font-weight: 300 !important; }
 		}
 		.description {
 			float: left;
-			margin: 10px 0 12px 10px;
+			width: 450px;
+			margin: 10px 0 0 10px;
 			font-size: 16px;
 		}
 		.sub { font-size: 12px; }
 		.timestamp {
 			float: right;
-			margin: 10px 10px 0 10px;
+			margin: 0 10px;
 			color: #999;
 		}
 	}
@@ -265,7 +274,7 @@ p, f { font-weight: 300 !important; }
 	
 	.badge {
 		float: left;
-		width: 100%;
+		width: 180px;
 		padding-left: 40px;
 		margin-bottom: 10px;
 		

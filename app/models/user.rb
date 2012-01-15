@@ -51,6 +51,8 @@ class User < ActiveRecord::Base
     Event.where("lender_id = ? OR borrower_id = ?", self.id, self.id)
   end
   
+  # Badges & Achievements
+  
   def first_badge
     badge = Badge.find(1)
     self.badges << badge

@@ -24,6 +24,14 @@ class PagesController < ApplicationController
     @item = Item.new
     @event = Event.new
     
+    if !current_user.badges.empty?
+      badge_notice = current_user.badges.last.description
+    else
+      badge_notice = ""
+    end
+    
+    flash[:notice] = badge_notice
+    
     if !signed_in?
       redirect_to root_path, :notice => "Must be signed in!"
     end

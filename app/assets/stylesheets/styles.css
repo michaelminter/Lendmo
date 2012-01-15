@@ -2662,6 +2662,12 @@ p, f {
   float: left;
   margin-left: -60px;
 }
+#badge-notice {
+  padding: 4px 0;
+  text-align: center;
+  width: 100%;
+  background: #F4A83D;
+}
 #feed .event {
   width: 100%;
   display: inline-block;
@@ -2671,6 +2677,11 @@ p, f {
 #feed .event img {
   float: left;
   width: 40px;
+}
+#feed .event img:hover {
+  -webkit-box-shadow: 0px 0px 3px #333333;
+  -moz-box-shadow: 0px 0px 3px #333333;
+  box-shadow: 0px 0px 3px #333333;
 }
 #feed .event .arrow {
   float: left;
@@ -2685,7 +2696,8 @@ p, f {
 }
 #feed .event .description {
   float: left;
-  margin: 10px 0 12px 10px;
+  width: 450px;
+  margin: 10px 0 0 10px;
   font-size: 16px;
 }
 #feed .event .sub {
@@ -2693,7 +2705,7 @@ p, f {
 }
 #feed .event .timestamp {
   float: right;
-  margin: 10px 10px 0 10px;
+  margin: 0 10px;
   color: #999;
 }
 #feed ol.comments {
@@ -2758,7 +2770,7 @@ p, f {
 }
 .sidebar .badge {
   float: left;
-  width: 100%;
+  width: 180px;
   padding-left: 40px;
   margin-bottom: 10px;
 }
