@@ -13,22 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20120115033256) do
 
-  create_table "achievements", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "type"
-    t.integer  "level"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "badges", :force => true do |t|
-    t.string   "imageuri"
-    t.string   "name"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "comments", :force => true do |t|
     t.string   "content"
     t.datetime "created_at"
