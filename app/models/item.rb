@@ -3,9 +3,7 @@ class Item < ActiveRecord::Base
 
     validates :name,    :presence => true,
                         :length   => { :maximum => 63 }
-    validates :category,    :presence => true,
-                            :length   => { :maximum => 63 }
+    validates :user_id, :presence => true
     validates :borrower_id, :presence => true
-
 
 end

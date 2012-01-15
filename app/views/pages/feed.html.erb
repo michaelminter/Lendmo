@@ -9,18 +9,20 @@
         <%= button_tag "Borrow", :id => "borrow", :class => "btn large success" %>
       </div>
       
-      <%= form_for @item, :html => {:class => "lend-form"} do |form| %>
-        <select class="chzn-select" data-placeholder="Choose a friend...">
+      <%= form_for [@user, @item], :html => {:id => "lend-form"} do |form| %>
+        <select class="chzn-select" data-placeholder="Choose a friend..." name="borrower_id">
           <option value="">Lend to...</option>
           <% @friends.each do |f| %>
             <option value="<%= f.id %>"><%= f.name %></option>
           <% end %>
         </select>
+        <% form.hidden_field :user_id, :value => @user.id %>
         <%= form.text_field :name, :placeholder => "Item name" %>
+        <%= form.text_field :value, :placeholder => "Item value (optional)", :default => "10" %>
         <%= form.submit "Post", :class => "btn default" %>
       <% end %>
 
-      <%= form_for @event, :html => {:class => "borrow-form"} do |form| %>
+      <%= form_for @event, :html => {:id => "borrow-form"} do |form| %>
         <%= form.text_field :item_name, :placeholder => "What would you like to borrow?" %>
         <%= form.submit "Post", :class => "btn default" %>
       <% end %>
@@ -36,15 +38,14 @@
           <li><a href="#">What You Are Owed</a></li>
         </ul>
         
-        <table id="feed" class="span12">
-          <tbody>
-          <% if @events.empty? %>
-            No lending activity found among your friends.
-          <% else %>
-            <%= render :partial => 'posts/feed_item', :collection => @events %>
-          <% end %>
-          </tbody>
-        </table>
+        <div id="events">
+        <% if @events.empty? %>
+          No lending activity found among your friends.
+        <% else %>
+          <%= render :partial => 'posts/feed_item', :collection => @events %>
+        <% end %>
+        </div>
+        
       </div>
       
       <div class="span4 sidebar">
@@ -60,6 +61,4 @@
     <p>&copy; AD JZ DG JM</p>
   </footer>
   
-  <%= debug session %>
-
 </div> <!-- /container -->

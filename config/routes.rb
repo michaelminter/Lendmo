@@ -1,5 +1,15 @@
 Lendmo::Application.routes.draw do
-  resources :users, :events, :items
+  get "items/create"
+
+  get "items/destroy"
+
+  resources :users do
+    resources :items
+  end
+  
+  resources :events do
+    resources :comments
+  end
   
   root :to => 'pages#home'
   
