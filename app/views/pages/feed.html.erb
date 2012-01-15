@@ -19,13 +19,13 @@
           <% end %>
         </select>
         <!-- end of chosen.js insert -->
-        <%= form.text_field :name, :placeholder => "Item name" %>
-        <%= form.submit "Post", :class => "btn default" %>
+        <%= form.text_field :name, :placeholder => "Item name", :class => "item" %>
+        <%= form.submit "Post", :id => "lend-submit" %>
       <% end %>
 
       <%= form_for @event, :html => {:id => "borrow-form"} do |form| %>
-        <%= form.text_field :item_name, :placeholder => "What would you like to borrow?" %>
-        <%= form.submit "Post", :class => "btn default" %>
+        <%= form.text_field :item_name, :placeholder => "What would you like to borrow?", :class => "item" %>
+        <%= form.submit "Post", :id => "borrow-submit" %>
       <% end %>
     </div>
     
