@@ -189,6 +189,12 @@ body {
   line-height: 18px;
   color: #404040;
 }
+body a{
+    color: #468847;
+}
+body a:hover{
+    color: #006400;
+}
 .container {
   width: 940px;
   margin-left: auto;
