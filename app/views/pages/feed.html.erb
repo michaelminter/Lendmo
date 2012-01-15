@@ -40,8 +40,8 @@
 
         <ul class="tabs" data-tabs='tabs'>
           <li class="active"><a href="#lending">Lending Activity</a></li>
-          <li><a href="#owe">What You Owe</a></li>
-          <li><a href="#owed">What You Are Owed</a></li>
+          <li><a href="#owe">Currently Borrowing</a></li>
+          <li><a href="#owed">Currently Lending</a></li>
         </ul>
 
         <div class='tab-content'>
@@ -80,7 +80,7 @@
       </div> <!-- span10 end -->
       
       <div class="span4 sidebar">
-        <h3><%= @user.name %></h3>
+        <h3><%= link_to @user.name, @user %></h3>
         <div class="sidebar-content">
           <%= @user.items.count %> items currently lent. <br/>
           <%= @user.num_lends %> lends on Lendmo.

@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
   has_many :items
   
-  after_create :first_achievement
+  has_and_belongs_to_many :badges
+  
+  after_create :first_badge
 
   validates :first_name,  :presence => true,
                           :length   => { :maximum => 63 }
@@ -28,13 +30,6 @@ class User < ActiveRecord::Base
       fbUser.friends.each { |f| friend_fb_ids << f.identifier }
       
       User.where(:fb_id => friend_fb_ids).find_each { |user| friends << user }
-      
-      # fbUser.friends.each do |f|
-      #   user = User.exists(f.identifier)
-      #   if !user.nil?
-      #     friends << user
-      #   end
-      # end
     end
     
     friends
@@ -47,7 +42,7 @@ class User < ActiveRecord::Base
     friends.each do |f|
       friend = User.where(:fb_id => f.fb_id).first
       if !friend.nil?
-        Event.where("lender_id = ? OR borrower_id = ?", friend.id, friend.id).each do |e|
+        Event.where("lender_id = ? OR borrower_id = ? OR borrower_id = ?", friend.id, friend.id, self.id).each do |e|
           events << e unless e.nil?
         end
       end
@@ -63,8 +58,9 @@ class User < ActiveRecord::Base
     events
   end
   
-  def first_achievement
-    
+  def first_badge
+    badge = Badge.find(1)
+    self.badges << badge
   end
   
   def self.exists(fb_id)
