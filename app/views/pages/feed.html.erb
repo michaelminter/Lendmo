@@ -28,6 +28,7 @@
       <% end %>
 
       <%= form_for @event, :html => {:id => "borrow-form"} do |form| %>
+        <% form.hidden_field :borrower_id, :value => @user.id %>
         <%= form.text_field :item_name, :placeholder => "What would you like to borrow?" %>
         <%= form.submit "Post", :class => "btn default" %>
       <% end %>
@@ -55,11 +56,25 @@
           </div>
           
           <div id='owe'>
-              This is the stuff you owe.
+            <div id='feed'>
+            <% @borrows = @events.find_all {|e| e.borrower_id == @user.id } %>
+            <% if @borrows.empty? %>
+              You've not borrowed anything.
+            <% else %>
+              <%= render :partial => 'posts/feed_item', :collection => @borrows %>
+            <% end %>
+            </div>
           </div>
           
           <div id='owed'>
-              This is stuff that is owed to you.
+            <div id='feed'>
+            <% @lends = @events.find_all {|e| e.lender_id == @user.id } %>
+            <% if @lends.empty? %>
+              You've not lent anything.
+            <% else %>
+              <%= render :partial => 'posts/feed_item', :collection => @lends %>
+            <% end %>
+            </div>
           </div>
         </div>
       </div> <!-- span10 end -->

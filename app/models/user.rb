@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
     friends.each do |f|
       friend = User.where(:fb_id => f.fb_id).first
       if !friend.nil?
-        Event.where("lender_id = ? OR borrower_id = ?", friend.id, friend.id).each do |e|
+        Event.where("lender_id = ? OR borrower_id = ? OR borrower_id = ?", friend.id, friend.id, self.id).each do |e|
           events << e unless e.nil?
         end
       end
@@ -100,6 +100,16 @@ class User < ActiveRecord::Base
     else
       existing
     end
+  end
+
+  def create_venmo_url(item)
+    value = item.value
+    name  = item.name
+    lender_email = URI.escape(User.find(item.user_id).email)
+    
+    note = URI.escape("Paying you #{name} that I borrowed through Lendmo")
+    
+    "https://venmo.com/?txn=pay&amount=#{value}&note=#{note}&recipients=#{lender_email}"
   end
   
 end

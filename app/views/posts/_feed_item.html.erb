@@ -1,14 +1,23 @@
 <% @event = feed_item %>
-<% lender = @event.lender %>
+<% if !@event.lender_id.nil? %>
+  <% lender = @event.lender %>
+<% end %>
 <% borrower = @event.borrower %>
 
 <div class="event">
-  <%= link_to image_tag(lender.profile_picture), lender %>
-  <span class="arrow">&#10132;</span>
+  <% unless lender.nil? %>
+    <%= link_to image_tag(lender.profile_picture), lender %>
+    <span class="arrow">&#10132;</span>
+  <% end %>
   <%= link_to image_tag(borrower.profile_picture), borrower %>
   
-  <p class="description"><%= @event.description %></p>
-  
+  <p class="description"><%= @event.description %><br>
+  <% if @user.id == borrower.id && !lender.nil?%>
+    <% item = Item.find(@event.item_id) %>
+    <%= link_to "Pay #{lender.name} back", @user.create_venmo_url(item), :target => "_blank", :class => "venmo" %>
+  <% end %>
+  </p>
+
   <f class="timestamp"><%= time_ago_in_words(@event.created_at) %> ago</f>
 
   <ol class="comments">

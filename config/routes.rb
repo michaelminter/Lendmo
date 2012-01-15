@@ -1,4 +1,8 @@
 Lendmo::Application.routes.draw do
+  get "events/create"
+
+  get "events/destroy"
+
   get "items/create"
 
   get "items/destroy"
