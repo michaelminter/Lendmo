@@ -58,9 +58,7 @@
           </div>
           
           <div id='owe'>
-            <div id="feed">
-            <% @borrows = @events.find_all {|e| e.borrower_id == @user.id } %>
-            
+            <div id="feed">            
             <% if @borrows.empty? %>
               You've not borrowed anything.
             <% else %>
@@ -70,8 +68,7 @@
           </div>
           
           <div id='owed'>
-            <div id="feed">
-            <% @lends = @events.find_all {|e| e.lender_id == @user.id } %>
+            <div id="feed">            
             <% if @lends.empty? %>
               You've not lent anything.
             <% else %>
@@ -85,8 +82,8 @@
       <div class="span4 sidebar">
         <h3><%= link_to @user.name, @user %></h3>
         <div class="sidebar-content">
-          <%= @user.items.count %> items currently lent. <br/>
-          <%= @user.num_lends %> lends on Lendmo.
+          <%= @lends.count %> items currently lent. <br/>
+          <%= @user.num_lends %> total lends on Lendmo.
         </div>
       </div>
     </div>

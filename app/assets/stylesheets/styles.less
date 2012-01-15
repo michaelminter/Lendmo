@@ -188,6 +188,12 @@ p { font-weight: 300 !important; }
 			float: left; 
 			font-size: 20px; 
 			margin: 10px;
+			&.rotate {
+				-moz-transform: rotate(180deg);
+				-webkit-transform: rotate(180deg);
+				-o-transform: rotate(180deg);
+				-ms-transform: rotate(180deg);
+			}
 		}
 		.description {
 			float: left;
@@ -195,10 +201,10 @@ p { font-weight: 300 !important; }
 			font-size: 16px;
 			margin-top: 10px;
 		}
-		.venmo { font-size: 12px; }
+		.sub { font-size: 12px; }
 		.timestamp {
 			float: right;
-			margin: 10px 10px 0 0;
+			margin: 10px;
 			color: #999;
 		}
 	}

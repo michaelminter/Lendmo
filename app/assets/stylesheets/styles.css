@@ -2674,17 +2674,23 @@ p {
   font-size: 20px;
   margin: 10px;
 }
+#feed .event .arrow.rotate {
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+}
 #feed .event .description {
   float: left;
   margin-left: 10px;
   font-size: 16px;
   margin-top: 10px;
 }
-#feed .event .venmo {
+#feed .event .sub {
   font-size: 12px;
 }
 #feed .event .timestamp {
   float: right;
-  margin: 10px 10px 0 0;
+  margin: 10px;
   color: #999;
 }

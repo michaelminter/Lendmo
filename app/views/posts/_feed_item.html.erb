@@ -7,16 +7,19 @@
 <div class="event">
   <% unless lender.nil? %>
     <%= link_to image_tag(lender.profile_picture), lender %>
-    <span class="arrow">&#10132;</span>
+    <span class="arrow <%= 'rotate' unless @event.islending? %>">&#10132;</span>      
   <% end %>
   <%= link_to image_tag(borrower.profile_picture), borrower %>
   
   <p class="description"><%= @event.description %><br>
-  <% if @user.id == borrower.id && !lender.nil?%>
+  <% if @user.id == borrower.id && @event.islending? && !lender.nil?%>
     <% item = Item.find(@event.item_id) %>
-    <%= link_to "Pay #{lender.name} back", @user.create_venmo_url(item), :target => "_blank", :class => "venmo" %>
-    <br>
-    <%= link_to "Return item back", :controller => "items", :action => "destroy", :user_id => @user.id, :id => item.id, :event_id => @event.id %>
+    <%= link_to "Return item", { :controller => "items", :action => "destroy", :user_id => @user.id, :id => item.id, :event_id => @event.id }, :class => "sub" %>
+    &#8226;
+    <%= link_to "Pay #{lender.name} back", item.create_venmo_url(current_user), :target => "_blank", :class => "sub" %>
+  <% elsif @event.islending? && !lender.nil? %>
+    <% item = Item.find(@event.item_id) %>
+    <%= link_to "Charge #{borrower.name} for item", item.create_venmo_url(current_user), :target => "_blank", :class => "sub" %>
   <% end %>
   </p>
 

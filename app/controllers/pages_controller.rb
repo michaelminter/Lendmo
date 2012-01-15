@@ -17,6 +17,9 @@ class PagesController < ApplicationController
       @events = feed_events.paginate(:page => params[:page], :per_page => 10)
     end
     
+    @borrows = @events.find_all { |e| e.borrower_id == @user.id && e.islending? }
+    @lends = @events.find_all { |e| e.lender_id == @user.id && e.islending? }
+    
     @friends = @user.friends(session[:token])
     @item = Item.new
     @event = Event.new
