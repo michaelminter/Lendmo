@@ -185,7 +185,7 @@ body {
   margin: 0;
   font-family: "Signika", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
-  font-weight: normal;
+  font-weight: 300;
   line-height: 18px;
   color: #404040;
 }
@@ -2510,6 +2510,9 @@ strong, b {
 html, body {
   background-color: #eee;
   height: 100%;
+}
+p {
+  font-weight: 300 !important;
 }
 #landing-header {
   display: none;
