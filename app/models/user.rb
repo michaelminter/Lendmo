@@ -56,14 +56,17 @@ class User < ActiveRecord::Base
     self.badges << badge
   end
 
-  def award_lending_badges
-    badges = Badge.where(:type => 'Lend')
-    i = 1
-    badges.each do |badge|
-      if self.num_lends == i
-        self.badges << badge
-      end
-      i = i * 5
+  def award_first_lend
+    badge = Badge.find(2)
+    if num_lends == 1
+      self.badges << badge
+    end
+  end
+
+  def award_fifth_lend
+    badge = Badge.find(3)
+    if num_lends == 5
+      self.badges << badge
     end
   end
 
@@ -103,9 +106,10 @@ class User < ActiveRecord::Base
       response = http.request(req)
     end
     
-    self.num_lends += 1
-    self.save 
-    award_lending_badges
+     self.num_lends += 1
+     self.save 
+    award_first_lend
+    award_fifth_lend
     Event.create(:item_id => item.id, :borrower_id => borrower.id, :lender_id => self.id, :item_name => item.name, :islending => true)
   end
   
@@ -141,12 +145,11 @@ class User < ActiveRecord::Base
   end
 
   def create_venmo_url(item)
+    award_butterfingers
     value = item.value
     name  = item.name
     lender_email = URI.escape(User.find(item.user_id).email)
-    award_butterfingers
-    note = URI.escape("Paying you #{name} that I borrowed through Lendmo")
-      
+    note = URI.escape("Paying you #{name} that I borrowed through Lendmo") 
     "https://venmo.com/?txn=pay&amount=#{value}&note=#{note}&recipients=#{lender_email}"
   end
   

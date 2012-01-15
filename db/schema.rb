@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(:version => 20120115121858) do
     t.string   "name"
     t.string   "image_uri"
     t.string   "description"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type"
   end
 
   create_table "badges_users", :id => false, :force => true do |t|
