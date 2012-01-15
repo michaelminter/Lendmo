@@ -183,7 +183,7 @@ textarea {
 body {
   background-color: #ffffff;
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Signika", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   font-weight: normal;
   line-height: 18px;
@@ -603,7 +603,7 @@ label,
 input,
 select,
 textarea {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Signika", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   font-weight: normal;
   line-height: normal;
@@ -1355,7 +1355,7 @@ table .headerSortUp.purple, table .headerSortDown.purple {
 .topbar input {
   background-color: #444;
   background-color: rgba(255, 255, 255, 0.3);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Signika", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: normal;
   font-weight: 13px;
   line-height: 1;
@@ -2479,12 +2479,16 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 }
 /* Globals */
 a {
+  color: #468847;
   text-decoration: none !important;
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
   -ms-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
+}
+a:hover {
+  color: #006400;
 }
 ul, li {
   list-style: none;
@@ -2498,6 +2502,9 @@ hr {
   -webkit-box-shadow: 0px 1px 0px #ffffff;
   -moz-box-shadow: 0px 1px 0px #ffffff;
   box-shadow: 0px 1px 0px #ffffff;
+}
+strong, b {
+  font-weight: 600;
 }
 /* Main */
 html, body {
@@ -2549,7 +2556,12 @@ html, body {
 }
 #header ul li {
   float: left;
-  margin-left: 10px;
+  margin: 0 10px;
+}
+#header img#logo {
+  width: 30px;
+  float: left;
+  margin: 2px 5px 0 0;
 }
 .hero-unit {
   text-align: center;
@@ -2626,6 +2638,25 @@ html, body {
   padding: 30px 20px 25px;
   margin: -20px -20px 20px;
   font-size: 25px;
+  min-height: 30px;
+}
+.main .span10 {
+  border-right: solid 1px #EEE;
+}
+.main #actions {
+  margin: 0 20px 0 0;
+  float: left;
+}
+.main #lend-form, .main #borrow-form {
+  display: none;
+  float: left;
+}
+.main #lend-form input .invalid, .main #borrow-form input .invalid {
+  background-color: #FEE;
+  border-color: #F00;
+}
+.main #item_value {
+  width: 150px;
 }
 #profile {
   padding-left: 60px;
@@ -2634,34 +2665,30 @@ html, body {
   float: left;
   margin-left: -60px;
 }
-#lend-form, #borrow-form {
-  /* display: none; */
-
-}
-#events .event {
+#feed .event {
   width: 100%;
-  float: left;
+  display: inline-block;
   margin-bottom: 10px;
   padding: 0 0 10px 0;
   border-bottom: solid 1px #EEE;
 }
-#events .event img {
+#feed .event img {
   float: left;
   width: 40px;
 }
-#events .event .arrow {
+#feed .event .arrow {
   float: left;
   font-size: 20px;
   margin: 10px;
 }
-#events .event .description {
+#feed .event .description {
   float: left;
   margin-left: 10px;
   font-size: 16px;
   margin-top: 10px;
 }
-#events .event .timestamp {
+#feed .event .timestamp {
   float: right;
-  margin-top: 10px;
+  margin: 10px 10px 0 0;
   color: #999;
 }

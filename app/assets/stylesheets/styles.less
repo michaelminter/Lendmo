@@ -24,8 +24,10 @@
 
 /* Globals */
 a {
+	color: #468847;
 	text-decoration: none !important;
 	.transition(color .1s linear);
+	&:hover { color: #006400; }
 }
 
 ul, li {
@@ -40,6 +42,10 @@ hr {
 	border: none;
 	border-bottom: solid 1px #999;
 	.box-shadow(0px 1px 0px #FFF);
+}
+
+strong, b { 
+	font-weight: 600;
 }
 
 /* Main */
@@ -68,16 +74,28 @@ html, body {
 	padding: 5px 0;
 	
 	.container { width: 840px; }
+	
 	h1 { float: left; margin: 0; font-family: 'Viga'; font-weight: normal; }
+	
 	a { 
 		float: right; 
 		color: #DDD;
 		&:hover { color: #FFF; }
 	}
+	
 	ul {
 		float: right;
 		margin: 10px 0 0 0;
-		li { float: left; margin-left: 10px; }
+		li { 
+			float: left; 
+			margin: 0 10px;
+		}
+	}
+	
+	img#logo {
+		width: 30px;
+		float: left;
+		margin: 2px 5px 0 0;
 	}
 }
 
@@ -127,7 +145,24 @@ html, body {
 		padding: 30px 20px 25px;
 		margin: -20px -20px 20px;
 		font-size: 25px;
+		min-height: 30px;
 	}
+	
+	.span10 { border-right: solid 1px #EEE; }
+	
+	#actions { margin: 0 20px 0 0; float: left; }
+	
+	#lend-form, #borrow-form {
+		display: none;
+		float: left;
+		
+		input .invalid {
+		    background-color: #FEE;
+		    border-color: #F00;
+		}
+	}
+	
+	#item_value { width: 150px; }
 }
 
 #profile {
@@ -135,19 +170,10 @@ html, body {
 	img { float: left; margin-left: -60px; }
 }
 
-input[type="text"] .invalid {
-    background-color: #FEE;
-    border-color: #F00;
-}
-
-#lend-form, #borrow-form {
-	/* display: none; */
-}
-
-#events {
+#feed {
 	.event {
 		width: 100%;
-		float: left;
+		display: inline-block;
 		margin-bottom: 10px;
 		padding: 0 0 10px 0;
 		border-bottom: solid 1px #EEE;
@@ -169,7 +195,7 @@ input[type="text"] .invalid {
 		}
 		.timestamp {
 			float: right;
-			margin-top: 10px;
+			margin: 10px 10px 0 0;
 			color: #999;
 		}
 	}
