@@ -74,9 +74,7 @@ class User < ActiveRecord::Base
 
   def award_butterfingers
     badge = Badge.find(4)
-    if self.badges.find_all{ |b| b == badge }.empty?
-      self.badges << badge
-    end
+    self.badges << badge
   end
 
   def self.exists(fb_id)
@@ -147,7 +145,6 @@ class User < ActiveRecord::Base
   end
 
   def create_venmo_url(item)
-    award_butterfingers
     value = item.value
     name  = item.name
     lender_email = URI.escape(User.find(item.user_id).email)
