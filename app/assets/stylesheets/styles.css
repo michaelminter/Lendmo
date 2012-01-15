@@ -2571,16 +2571,7 @@ p {
   font-family: 'Viga';
   height: 100%;
   padding-top: 200px;
-  background-color: #84d69a;
-  background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#006400), to(#84d69a));
-  background-image: -moz-linear-gradient(top, #006400, #84d69a);
-  background-image: -ms-linear-gradient(top, #006400, #84d69a);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #006400), color-stop(100%, #84d69a));
-  background-image: -webkit-linear-gradient(top, #006400, #84d69a);
-  background-image: -o-linear-gradient(top, #006400, #84d69a);
-  background-image: linear-gradient(top, #006400, #84d69a);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006400', endColorstr='#84d69a', GradientType=0);
+  background: #404040;
   -webkit-border-radius: 0px 0px 5px 5px;
   -moz-border-radius: 0px 0px 5px 5px;
   border-radius: 0px 0px 5px 5px;

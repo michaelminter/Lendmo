@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :items
-
-  has_and_belongs_to_many :badges
+  
+  after_create :first_achievement
 
   validates :first_name,  :presence => true,
                           :length   => { :maximum => 63 }
@@ -56,6 +56,10 @@ class User < ActiveRecord::Base
     events
   end
   
+  def first_achievement
+    
+  end
+  
   def self.exists(fb_id)
     existing = User.where(:fb_id => fb_id).first
   end
@@ -73,6 +77,7 @@ class User < ActiveRecord::Base
   end
   
   def lend(item, borrower)
+    self.num_lends += 1
     Event.create(:item_id => item.id, :borrower_id => borrower.id, :lender_id => self.id, :item_name => item.name, :islending => true)
   end
 
@@ -86,7 +91,8 @@ class User < ActiveRecord::Base
         :last_name => auth_hash[:info][:last_name],
         :email => auth_hash[:info][:email],
         :url => auth_hash[:info][:urls][:Facebook],
-        :fb_id => auth_hash[:uid]
+        :fb_id => auth_hash[:uid],
+        :num_lends => 0
       )
     else
       existing

@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120115002927) do
+ActiveRecord::Schema.define(:version => 20120115033256) do
+
+  create_table "achievements", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "type"
+    t.integer  "level"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "badges", :force => true do |t|
     t.string   "imageuri"
@@ -57,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20120115002927) do
     t.datetime "updated_at"
     t.string   "url"
     t.string   "fb_id"
+    t.integer  "num_lends"
   end
 
 end

@@ -14,6 +14,8 @@ end
 
 group :development, :test do
   gem 'sqlite3'
+  # To use debugger
+  # gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
 # Gems used only for assets and not required
@@ -28,9 +30,6 @@ gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
   # Pretty printed test output
