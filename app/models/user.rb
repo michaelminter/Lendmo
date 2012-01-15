@@ -94,6 +94,8 @@ class User < ActiveRecord::Base
   end
   
   def lend(item, borrower, token)
+    item_uri = "http://localhost:3000/items/#{item.id}"
+    
     if !token.nil?
       # Post a Facebook Open Graph action for this lend operation
       uri = URI('https://graph.facebook.com/me/lendmo-app:lend')
@@ -102,7 +104,7 @@ class User < ActiveRecord::Base
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       
       req = Net::HTTP::Post.new(uri.request_uri)
-      req.set_form_data('item' => 'http://samples.ogp.me/222418151177756', 'access_token' => token)
+      req.set_form_data('item' => item_uri, 'access_token' => token)
       response = http.request(req)
     end
     

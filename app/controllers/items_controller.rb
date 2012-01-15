@@ -30,5 +30,10 @@ class ItemsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  def open_graph
+    @item = Item.find(params[:id])
+    render :partial => "layouts/graph_item"
+  end
 
 end

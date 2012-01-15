@@ -12,6 +12,7 @@ Lendmo::Application.routes.draw do
   get "items/destroy"
   
   match '/users/payback', :to => 'users#payback'
+  match '/items/:id', :to => 'items#open_graph'
 
   resources :users do
     resources :items
