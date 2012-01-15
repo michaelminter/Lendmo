@@ -47,6 +47,7 @@
         <div class='tab-content'>
           <div class='active' id='lending'>
             <div id="feed">
+              <%= debug @events %>  
             <% if @events.empty? %>
               No lending activity found among your friends.
             <% else %>
@@ -60,6 +61,7 @@
           <div id='owe'>
             <div id='feed'>
             <% @borrows = @events.find_all {|e| e.borrower_id == @user.id } %>
+            <%= debug @borrows %>
             <% if @borrows.empty? %>
               You've not borrowed anything.
             <% else %>
