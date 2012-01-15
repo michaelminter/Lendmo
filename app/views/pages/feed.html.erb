@@ -17,24 +17,16 @@
           <% @friends.each do |f| %>
             <option value="<%= f.id %>"><%= f.name %></option>
           <% end %>
-<<<<<<< HEAD
-        </select><br><br>
-=======
         </select>
         <!-- end of chosen.js insert -->
-          
+        
         <% form.hidden_field :user_id, :value => @user.id %>
->>>>>>> 48adaab7c9a76db090d13925403eead25df60044
         <%= form.text_field :name, :placeholder => "Item name" %>
         <%= form.text_field :value, :placeholder => "Item value (optional)", :default => "10" %>
         <%= form.submit "Post", :class => "btn default" %>
       <% end %>
-<<<<<<< HEAD
-      <%= form_for @event, :html => {:class => "borrow-form"} do |form| %>
-=======
 
       <%= form_for @event, :html => {:id => "borrow-form"} do |form| %>
->>>>>>> 48adaab7c9a76db090d13925403eead25df60044
         <%= form.text_field :item_name, :placeholder => "What would you like to borrow?" %>
         <%= form.submit "Post", :class => "btn default" %>
       <% end %>
@@ -50,17 +42,15 @@
           <li><a href="#owed">What You Are Owed</a></li>
         </ul>
 
-        <div class = 'pill-content'>
+        <div class = 'tab-content'>
             <div class = 'active' id = 'lending'>
-                <table id="feed" class="span12">
-                  <tbody>
-                  <% if @events.empty? %>
-                    No lending activity found among your friends.
-                  <% else %>
-                    <%= render :partial => 'posts/feed_item', :collection => @events %>
-                  <% end %>
-                  </tbody>
-                </table>
+                <div id="events">
+                    <% if @events.empty? %>
+                      No lending activity found among your friends.
+                    <% else %>
+                      <%= render :partial => 'posts/feed_item', :collection => @events %>
+                    <% end %>
+                </div>
             </div>
             <div id = 'owe'>
                 This is the stuff you owe.
@@ -69,20 +59,7 @@
                 This is stuff that is owed to you.
             </div>
         </div>
-        
-        
-<<<<<<< HEAD
-=======
-        <div id="events">
-        <% if @events.empty? %>
-          No lending activity found among your friends.
-        <% else %>
-          <%= render :partial => 'posts/feed_item', :collection => @events %>
-        <% end %>
-        </div>
-        
->>>>>>> 48adaab7c9a76db090d13925403eead25df60044
-      </div>
+      </div> <!-- span10 end -->
       
       <div class="span4 sidebar">
         <h3>Sidebar</h3>
@@ -97,9 +74,4 @@
     <p>&copy; AD JZ DG JM</p>
   </footer>
   
-<<<<<<< HEAD
-  <%= debug session %>
-
-=======
->>>>>>> 48adaab7c9a76db090d13925403eead25df60044
 </div> <!-- /container -->
