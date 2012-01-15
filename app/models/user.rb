@@ -104,8 +104,8 @@ class User < ActiveRecord::Base
       response = http.request(req)
     end
     
-     self.num_lends += 1
-     self.save 
+    self.num_lends += 1
+    self.save 
     award_first_lend
     award_fifth_lend
     Event.create(:item_id => item.id, :borrower_id => borrower.id, :lender_id => self.id, :item_name => item.name, :islending => true)
