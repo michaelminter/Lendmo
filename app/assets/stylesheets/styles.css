@@ -2626,6 +2626,20 @@ html, body {
   padding: 30px 20px 25px;
   margin: -20px -20px 20px;
   font-size: 25px;
+  min-height: 30px;
+}
+.main .span10 {
+  border-right: solid 1px #EEE;
+}
+.main #actions {
+  margin: 0 20px 0 0;
+  float: left;
+}
+.main #lend-form, .main #borrow-form {
+  float: left;
+}
+.main #item_value {
+  width: 150px;
 }
 #profile {
   padding-left: 60px;
@@ -2634,34 +2648,30 @@ html, body {
   float: left;
   margin-left: -60px;
 }
-#lend-form, #borrow-form {
-  /* display: none; */
-
-}
-#events .event {
+#feed .event {
   width: 100%;
-  float: left;
+  display: inline-block;
   margin-bottom: 10px;
   padding: 0 0 10px 0;
   border-bottom: solid 1px #EEE;
 }
-#events .event img {
+#feed .event img {
   float: left;
   width: 40px;
 }
-#events .event .arrow {
+#feed .event .arrow {
   float: left;
   font-size: 20px;
   margin: 10px;
 }
-#events .event .description {
+#feed .event .description {
   float: left;
   margin-left: 10px;
   font-size: 16px;
   margin-top: 10px;
 }
-#events .event .timestamp {
+#feed .event .timestamp {
   float: right;
-  margin-top: 10px;
+  margin: 10px 10px 0 0;
   color: #999;
 }

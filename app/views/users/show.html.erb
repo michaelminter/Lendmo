@@ -6,8 +6,6 @@
   <div class="content">
     
     <div class="page-header">
-      <p id="notice"><%= notice %></p>
-
       <div id="profile" class="span12">
         <%= image_tag @user.profile_picture %>
         <h2><a href="<%= @user.url %>"><%= @user.name %></a></h2>
@@ -15,14 +13,23 @@
       </div>
     </div>
 
-    <div id="user-feed">
-      <h3><%= @user.first_name %>'s Lendmo activity</h3>
-      <div class="activity">
-        <% if @events.empty? %>
-          No lending activity for this user.
-        <% else %>
-          <%= render :partial => 'posts/feed_item', :collection => @events %>
-        <% end %>
+    <div class="row">
+      <div class="span10">
+        <h3><%= @user.first_name %>'s Lendmo activity</h3> <br/>
+        <div id="feed">
+          <% if @events.empty? %>
+            No lending activity for this user.
+          <% else %>
+            <%= render :partial => 'posts/feed_item', :collection => @events %>
+          <% end %>
+        </div>
+      </div>
+      
+      <div class="span4 sidebar">
+        <h3>Sidebar</h3>
+        <div class="sidebar-content">
+          Content
+        </div>
       </div>
     </div>
   
