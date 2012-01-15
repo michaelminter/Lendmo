@@ -2724,6 +2724,18 @@ p, f {
   margin: 5px 10px 0 0;
   color: #ccc;
 }
+#feed ol.comments a.delete {
+  float: right;
+  margin: 0 10px 0 0;
+  padding: 3px 8px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  display: none;
+}
+#feed ol.comments a.delete:hover {
+  background: #f3f3f3;
+}
 #feed ol.comments .comment-link {
   float: left;
   font-size: 14px;

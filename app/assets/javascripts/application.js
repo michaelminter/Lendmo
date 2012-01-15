@@ -10,8 +10,14 @@
 
 $(document).ready(function(){
   $(".chzn-select").chosen();
+  
   $(".comment-link").click(function(){
     $(this).parent().children("li").children("form").show();
     $(this).hide();
+  });
+  
+  $("ol.comments li").hover(function(){
+    $(this).children(".timestamp.own").toggle();
+    $(this).children(".delete").toggle();
   });
 });
