@@ -50,4 +50,14 @@ class UsersController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  def payback
+    @user = User.find(params[:id])
+    @user.award_butterfingers
+
+    @item = Item.find(params[:item_id])
+    venmo_url = @item.create_venmo_url(@user)
+
+    redirect_to venmo_url    
+  end
 end
