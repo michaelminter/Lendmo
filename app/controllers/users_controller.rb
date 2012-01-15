@@ -17,16 +17,8 @@ class UsersController < ApplicationController
     @events = @user.activity_events.paginate(:page => params[:page], :per_page => 10)
     @badges = @user.badges
 
-    if @user.badges.empty?
-      badge_notice = @user.badges.last.description
-    else
-      badge_notice = ""
-    end
-    
-    flash[:notice] = badge_notice
-
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @user }
     end
   end
@@ -60,7 +52,7 @@ class UsersController < ApplicationController
   end
 
   def payback
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     @user.award_butterfingers
 
     @item = Item.find(params[:item_id])

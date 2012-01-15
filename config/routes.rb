@@ -10,6 +10,8 @@ Lendmo::Application.routes.draw do
   get "items/create"
 
   get "items/destroy"
+  
+  match '/users/payback', :to => 'users#payback'
 
   resources :users do
     resources :items

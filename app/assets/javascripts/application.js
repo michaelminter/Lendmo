@@ -20,4 +20,6 @@ $(document).ready(function(){
     $(this).children(".timestamp.own").toggle();
     $(this).children(".delete").toggle();
   });
+  
+  $("#badge-notice").show().delay(5000).slideUp();
 });
