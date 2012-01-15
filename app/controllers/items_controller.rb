@@ -18,9 +18,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:user_id])
-    @item = Post.find(params[:id])
-    @user.return(@item)
+    @user  = User.find(params[:user_id])
+    @item  = Item.find(params[:id])
+    @event = Event.find(params[:event_id])
+
+    @user.give_back(@item)
+    @event.destroy
     
     respond_to do |format|
       format.html { redirect_to @user, :notice => 'Successfully returned ' + @item.name + ' to ' + @user.name }

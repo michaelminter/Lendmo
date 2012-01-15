@@ -4,12 +4,12 @@ class Event < ActiveRecord::Base
   default_scope :order => 'events.created_at DESC'
   
   def description()
-    borrower = User.find(self.borrower_id)
+    borrower = self.borrower
     if(lender_id.nil?)
       return borrower.name + " wants to borrow " + self.item_name
     else
       item = Item.find(self.item_id)
-      lender = User.find(self.lender_id)
+      lender = self.lender
       if (self.islending?)
         lender.name + " lent " + item.name + " to " + borrower.name
       else

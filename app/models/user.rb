@@ -66,9 +66,10 @@ class User < ActiveRecord::Base
     end
   end
 
-  def return(item)
-    Event.create(:item_id => item.id, :islending => false)
-    item.destroy
+  def give_back(item)
+    Event.create(:item_id => item.id, :lender_id => item.user_id, :borrower_id => item.borrower_id, :islending => false)
+    lender = User.find(item.user_id)
+    lender.num_lends -= 1
   end
   
   def lend(item, borrower, token)

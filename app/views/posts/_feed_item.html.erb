@@ -15,6 +15,8 @@
   <% if @user.id == borrower.id && !lender.nil?%>
     <% item = Item.find(@event.item_id) %>
     <%= link_to "Pay #{lender.name} back", @user.create_venmo_url(item), :target => "_blank", :class => "venmo" %>
+    <br>
+    <%= link_to "Return item back", :controller => "items", :action => "destroy", :user_id => @user.id, :id => item.id, :event_id => @event.id %>
   <% end %>
   </p>
 
