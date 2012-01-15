@@ -75,11 +75,13 @@ class User < ActiveRecord::Base
     if !token.nil?
       # Post a Facebook Open Graph action for this lend operation
       uri = URI('https://graph.facebook.com/me/lendmo-app:lend')
-      req = Net::HTTP::Post.new(uri.path)
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      
+      req = Net::HTTP::Post.new(uri.request_uri)
       req.set_form_data('item' => 'http://samples.ogp.me/222418151177756', 'access_token' => token)
-      res = Net::HTTP.start(uri.hostname, uri.port) do |http|
-        http.request(req)
-      end
+      response = http.request(req)
     end
     
     self.num_lends += 1
