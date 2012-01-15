@@ -55,7 +55,25 @@ class User < ActiveRecord::Base
     badge = Badge.find(1)
     self.badges << badge
   end
-  
+
+  def award_lending_badges
+    badges = Badge.where(:type => 'Lend')
+    i = 1
+    badges.each do |badge|
+      if self.num_lends == i
+        self.badges << badge
+      end
+      i = i * 5
+    end
+  end
+
+  def award_butterfingers
+    badge = Badge.find(4)
+    if self.badges.find_all{ |b| b == badge }.empty?
+      self.badges << badge
+    end
+  end
+
   def self.exists(fb_id)
     existing = User.where(:fb_id => fb_id).first
   end
@@ -70,7 +88,6 @@ class User < ActiveRecord::Base
   def give_back(item)
     Event.create(:item_id => item.id, :lender_id => item.user_id, :borrower_id => item.borrower_id, :islending => false)
     lender = User.find(item.user_id)
-    lender.num_lends -= 1
   end
   
   def lend(item, borrower, token)
@@ -87,6 +104,8 @@ class User < ActiveRecord::Base
     end
     
     self.num_lends += 1
+    self.save 
+    award_lending_badges
     Event.create(:item_id => item.id, :borrower_id => borrower.id, :lender_id => self.id, :item_name => item.name, :islending => true)
   end
   
@@ -121,4 +140,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def create_venmo_url(item)
+    value = item.value
+    name  = item.name
+    lender_email = URI.escape(User.find(item.user_id).email)
+    award_butterfingers
+    note = URI.escape("Paying you #{name} that I borrowed through Lendmo")
+      
+    "https://venmo.com/?txn=pay&amount=#{value}&note=#{note}&recipients=#{lender_email}"
+  end
+  
 end
