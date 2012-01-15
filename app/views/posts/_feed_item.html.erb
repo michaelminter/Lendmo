@@ -36,7 +36,10 @@
     </li>
     <% end %>
     <li>
-      <%= form_for([@event, @event.comments.build(:user_id => current_user, :event_id => @event.id)]) do |f| %>
+      <%= debug current_user %>
+      <%= form_for([@event, @event.comments.build(:user_id => current_user.id, :event_id => @event.id)]) do |f| %>
+        <% f.hidden_field :user_id, :value => current_user.id %>
+        <% f.hidden_field :event_id, :value => @event.id %>
         <div class="field">
           <%= f.text_field :content, :placeholder => "Type your comment here..." %>
           <%= f.submit "Comment", :class => "btn small default" %>
