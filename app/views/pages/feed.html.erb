@@ -11,8 +11,8 @@
   <div class="content">
     <div class="page-header">
       <div id="actions">
-        <%= button_tag "GIVE", :id => "lend", :class => "btn large success" %>
-        <%= button_tag "GET", :id => "borrow", :class => "btn large success" %>
+        <%= button_tag "LEND", :id => "lend", :class => "btn large success" %>
+        <%= button_tag "BORROW", :id => "borrow", :class => "btn large success" %>
       </div>
       
       <%= form_for [@user, @item], :html => {:id => "lend-form"} do |form| %>
