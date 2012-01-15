@@ -44,6 +44,7 @@ class User < ActiveRecord::Base
         return Event.where("lender_id = ? OR borrower_id = ? OR borrower_id = ?", friend.id, friend.id, self.id)
       end
     end
+      return Event.where("borrower_id = ?", self.id)
   end
   
   def activity_events()
