@@ -2505,9 +2505,13 @@ hr {
 strong, b {
   font-weight: 600;
 }
+hr {
+  border: none;
+  border-bottom: solid 1px #EEE;
+}
 /* Main */
 html, body {
-  background-color: #eee;
+  background-color: #EEE;
   height: 100%;
 }
 p {
