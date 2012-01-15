@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     
     respond_to do |format|
       if @item.save
-        @user.lend(@item, @borrower)
+        @user.lend(@item, @borrower, session[:token])
         logger.debug "New post: #{params.inspect}"
         format.html { redirect_to '/feed', :notice => 'Lent sucessfully.' }
       else

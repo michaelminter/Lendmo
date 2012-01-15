@@ -4,6 +4,7 @@ class EventsController < ApplicationController
     params[:event][:borrower_id] = @user.id 
     params[:event][:islending] = false
     @event = Event.create(params[:event])
+    @user.post_borrow_status(@event, session[:token])
     
     respond_to do |format|
       if @event.save
