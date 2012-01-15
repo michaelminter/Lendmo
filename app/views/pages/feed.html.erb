@@ -15,7 +15,7 @@
           <% @friends.each do |f| %>
             <option value="<%= f.id %>"><%= f.name %></option>
           <% end %>
-        </select>
+        </select><br><br>
         <%= form.text_field :name, :placeholder => "Item name" %>
         <%= form.submit "Post", :class => "btn default" %>
       <% end %>
@@ -29,21 +29,33 @@
       <div class="span10">
         <p id="notice"><%= notice %></p>
 
-        <ul class="tabs">
-          <li class="active"><a href="#">Lending Activity</a></li>
-          <li><a href="#">What You Owe</a></li>
-          <li><a href="#">What You Are Owed</a></li>
+        <ul class="tabs" data-tabs='tabs'>
+          <li class="active"><a href="#lending">Lending Activity</a></li>
+          <li><a href="#owe">What You Owe</a></li>
+          <li><a href="#owed">What You Are Owed</a></li>
         </ul>
+
+        <div class = 'pill-content'>
+            <div class = 'active' id = 'lending'>
+                <table id="feed" class="span12">
+                  <tbody>
+                  <% if @events.empty? %>
+                    No lending activity found among your friends.
+                  <% else %>
+                    <%= render :partial => 'posts/feed_item', :collection => @events %>
+                  <% end %>
+                  </tbody>
+                </table>
+            </div>
+            <div id = 'owe'>
+                This is the stuff you owe.
+            </div>
+            <div id = 'owed'>
+                This is stuff that is owed to you.
+            </div>
+        </div>
         
-        <table id="feed" class="span12">
-          <tbody>
-          <% if @events.empty? %>
-            No lending activity found among your friends.
-          <% else %>
-            <%= render :partial => 'posts/feed_item', :collection => @events %>
-          <% end %>
-          </tbody>
-        </table>
+        
       </div>
       
       <div class="span4 sidebar">
