@@ -7,12 +7,13 @@
   <span class="arrow">&#10132;</span>
   <%= link_to image_tag(borrower.profile_picture), borrower %>
   
-  <p class="description"><%= @event.description %></p>
+  <p class="description"><%= @event.description %><br>
   <% if @user.id == borrower.id %>
     <% item = Item.find(@event.item_id) %>
-    <%= link_to "Pay #{lender.name} back", create_venmo_url(item), :target => "_blank" %>
+    <%= link_to "Pay #{lender.name} back", @user.create_venmo_url(item), :target => "_blank", :class => "venmo" %>
   <% end %>
-  
+  </p>
+
   <f class="timestamp"><%= time_ago_in_words(@event.created_at) %> ago</f>
 
   <ol class="comments">
