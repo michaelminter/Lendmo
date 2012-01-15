@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
   def description()
     borrower = User.find(self.borrower_id)
     if(lender_id.nil?)
-      return borrower.name + " wants to borrow stuff"
+      return borrower.name + " wants to borrow " + self.item_name
     else
       item = Item.find(self.item_id)
       lender = User.find(self.lender_id)
