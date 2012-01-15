@@ -27,9 +27,14 @@
       
       <div class="span4 sidebar">
         <h3>Badges &amp; Achievements</h3>
+        <hr/>
         <div class="sidebar-content">
           <% @badges.each do |b| %>
-            <%= b.name %> <br/>
+            <div class="badge">
+              <%= image_tag Rails.root + "/assets/badges/#{b.image_uri}" %>
+              <span class="name"><%= b.name %></span> <br/>
+              <%= b.description %>
+            </div>
           <% end %>
         </div>
       </div>

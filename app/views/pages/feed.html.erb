@@ -60,7 +60,7 @@
           <div id='owe'>
             <div id="feed">            
             <% if @borrows.empty? %>
-              You've not borrowed anything.
+              You're not currently borrowing anything.
             <% else %>
               <%= render :partial => 'posts/feed_item', :collection => @borrows %>
             <% end %>
@@ -70,7 +70,7 @@
           <div id='owed'>
             <div id="feed">            
             <% if @lends.empty? %>
-              You've not lent anything.
+              You're not currently lending anything.
             <% else %>
               <%= render :partial => 'posts/feed_item', :collection => @lends %>
             <% end %>

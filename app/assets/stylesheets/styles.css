@@ -2573,7 +2573,7 @@ p {
   text-align: center;
   font-family: 'Viga';
   height: 100%;
-  padding-top: 200px;
+  padding-top: 100px;
   background: #404040;
   -webkit-border-radius: 0px 0px 5px 5px;
   -moz-border-radius: 0px 0px 5px 5px;
@@ -2697,4 +2697,20 @@ p {
   float: right;
   margin: 10px;
   color: #999;
+}
+.sidebar hr {
+  margin: 10px 0;
+}
+.sidebar .badge {
+  float: left;
+  width: 100%;
+  padding-left: 40px;
+}
+.sidebar .badge img {
+  width: 30px;
+  float: left;
+  margin: 0 5px 5px -40px;
+}
+.sidebar .badge .name {
+  font-weight: 600;
 }
