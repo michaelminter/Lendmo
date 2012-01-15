@@ -23,17 +23,24 @@ class User < ActiveRecord::Base
     if not token.nil?
       fbUser = FbGraph::User.new(self.fb_id, :access_token => token)
       fbUser = fbUser.fetch
-      fbUser.friends.each do |f|
-        user = User.exists(f.identifier)
-        if !user.nil?
-          friends << user
-        end
-      end
+      
+      friend_fb_ids = []
+      fbUser.friends.each { |f| friend_fb_ids << f.identifier }
+      
+      User.where(:fb_id => friend_fb_ids).find_each { |user| friends << user }
+      
+      # fbUser.friends.each do |f|
+      #   user = User.exists(f.identifier)
+      #   if !user.nil?
+      #     friends << user
+      #   end
+      # end
     end
     
     friends
   end
   
+  # Look through the list of friends using Lendmo and find events they've been involved in
   def feed_events(token)
     friends = self.friends(token)
     events = []
