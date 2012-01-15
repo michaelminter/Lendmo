@@ -2514,7 +2514,7 @@ html, body {
   background-color: #EEE;
   height: 100%;
 }
-p {
+p, f {
   font-weight: 300 !important;
 }
 #landing-header {
@@ -2666,7 +2666,6 @@ p {
   width: 100%;
   display: inline-block;
   margin-bottom: 10px;
-  padding: 0 0 10px 0;
   border-bottom: solid 1px #EEE;
 }
 #feed .event img {
@@ -2686,17 +2685,61 @@ p {
 }
 #feed .event .description {
   float: left;
-  margin-left: 10px;
+  margin: 10px 0 12px 10px;
   font-size: 16px;
-  margin-top: 10px;
 }
 #feed .event .sub {
   font-size: 12px;
 }
 #feed .event .timestamp {
   float: right;
-  margin: 10px;
+  margin: 10px 10px 0 10px;
   color: #999;
+}
+#feed ol.comments {
+  float: left;
+  margin: 0 0 0 50px;
+  clear: both;
+  width: 530px;
+}
+#feed ol.comments li {
+  float: left;
+  width: 100%;
+  padding: 8px 0;
+}
+#feed ol.comments li form {
+  margin: 0;
+}
+#feed ol.comments img {
+  width: 30px;
+  margin: 0 10px 0 0;
+}
+#feed ol.comments a {
+  margin-right: 5px;
+}
+#feed ol.comments p {
+  display: inline;
+}
+#feed ol.comments .timestamp {
+  margin: 5px 10px 0 0;
+  color: #ccc;
+}
+#feed ol.comments .comment-link {
+  float: left;
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
+  filter: alpha(opacity=75);
+  -khtml-opacity: 0.75;
+  -moz-opacity: 0.75;
+  opacity: 0.75;
+}
+#feed ol.comments #comment_content {
+  width: 410px;
+  margin-right: 5px;
+}
+#feed ol.comments form {
+  display: none;
 }
 .sidebar hr {
   margin: 10px 0;
@@ -2705,6 +2748,7 @@ p {
   float: left;
   width: 100%;
   padding-left: 40px;
+  margin-bottom: 10px;
 }
 .sidebar .badge img {
   width: 30px;

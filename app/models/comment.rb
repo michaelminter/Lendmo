@@ -6,4 +6,7 @@ class Comment < ActiveRecord::Base
     validates :user_id, :presence => true
     validates :event_id, :presence => true
 
+    def commenter()
+      User.find(self.user_id)
+    end
 end

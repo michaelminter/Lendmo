@@ -59,7 +59,7 @@ html, body {
 	height: 100%;
 }
 
-p { font-weight: 300 !important; }
+p, f { font-weight: 300 !important; }
 
 #landing-header {
 	display: none;
@@ -182,7 +182,6 @@ p { font-weight: 300 !important; }
 		width: 100%;
 		display: inline-block;
 		margin-bottom: 10px;
-		padding: 0 0 10px 0;
 		border-bottom: solid 1px #EEE;
 		
 		img { 
@@ -202,16 +201,52 @@ p { font-weight: 300 !important; }
 		}
 		.description {
 			float: left;
-			margin-left: 10px;
+			margin: 10px 0 12px 10px;
 			font-size: 16px;
-			margin-top: 10px;
 		}
 		.sub { font-size: 12px; }
 		.timestamp {
 			float: right;
-			margin: 10px;
+			margin: 10px 10px 0 10px;
 			color: #999;
 		}
+	}
+	
+	ol.comments {
+		float: left;
+		margin: 0 0 0 50px;
+		clear: both;
+		width: 530px;
+		
+		li {
+			float: left;
+			width: 100%;
+			padding: 8px 0;
+			
+			form { margin: 0; }
+		}
+		
+		img { 
+			width: 30px; 
+			margin: 0 10px 0 0;
+		}
+		
+		a { margin-right: 5px; }
+		p { display: inline; }
+		
+		.timestamp { margin: 5px 10px 0 0; color: #ccc; }
+		
+		.comment-link {
+			float: left;
+			font-size: 14px;
+			width: 100%;
+			text-align: center;
+			.opacity(75);
+		}
+		
+		#comment_content { width: 410px; margin-right: 5px; }
+		
+		form { display: none; }
 	}
 }
 
@@ -222,6 +257,7 @@ p { font-weight: 300 !important; }
 		float: left;
 		width: 100%;
 		padding-left: 40px;
+		margin-bottom: 10px;
 		
 		img { 
 			width: 30px; 

@@ -28,22 +28,20 @@
   <ol class="comments">
     <% @event.comments.each do |comment| %>
     <li>
-      <% commenter = User.find(comment.user_id) %>
-      <%= link_to image_tag(commenter.profile_picture), :class => "comment-profile-pic" %>
-      <h1><%= commenter.name %></h1>
+      <% commenter = comment.commenter %>
+      <%= link_to image_tag(commenter.profile_picture), commenter, :class => "comment-profile-pic" %>
+      <%= link_to commenter.name, commenter %>
       <p><%= comment.content %></p>
       <f class="timestamp"><%= time_ago_in_words(@event.created_at) %> ago</f>
     </li>
     <% end %>
+    
+    <%= link_to "― Comment ―", "#!", :class => "comment-link" %>
+    
     <li>
-      <%= debug current_user %>
       <%= form_for([@event, @event.comments.build(:user_id => current_user.id, :event_id => @event.id)]) do |f| %>
-        <% f.hidden_field :user_id, :value => current_user.id %>
-        <% f.hidden_field :event_id, :value => @event.id %>
-        <div class="field">
-          <%= f.text_field :content, :placeholder => "Type your comment here..." %>
-          <%= f.submit "Comment", :class => "btn small default" %>
-        </div>
+        <%= f.text_field :content, :placeholder => "Type your comment here..." %>
+        <%= f.submit "Comment", :class => "btn small default" %>
       <% end %>
     </li>
   </ol>
