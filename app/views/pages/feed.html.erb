@@ -83,11 +83,12 @@
         <h3><%= link_to @user.name, @user %></h3>
         <div class="sidebar-content">
           <%= @lends.count %> items currently lent. <br/>
+          <%= @borrows.count %> items currently borrowed. <br/>
           <%= @user.num_lends %> total lends on Lendmo. <br/> <br/>
           <hr/>
           <h5>Your friends on Lendmo</h5>
           <% @friends.each do |f| %>
-            <%= f.name %> <br/>
+            <%= link_to f.name, f %> <br/>
           <% end %>
         </div>
       </div>
