@@ -1,6 +1,6 @@
 <div id="header">
   <div class="container">
-    <h1><%= link_to("Lendmo", root_path) %></h1>
+    <h1><div id = 'title'><img id = 'logo' src = '/assets/logo.png'></img><%= link_to("   Lendmo", root_path) %></div></h1>
     <ul id="header-links">
     <% if signed_in? %>
       <li><%= link_to current_user.name, current_user %></li>

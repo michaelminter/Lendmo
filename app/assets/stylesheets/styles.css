@@ -183,7 +183,7 @@ textarea {
 body {
   background-color: #ffffff;
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Ruda';
   font-size: 13px;
   font-weight: normal;
   line-height: 18px;
@@ -603,7 +603,7 @@ label,
 input,
 select,
 textarea {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Ruda;
   font-size: 13px;
   font-weight: normal;
   line-height: normal;
@@ -1218,6 +1218,17 @@ table .span16 {
 table .header {
   cursor: pointer;
 }
+#title {
+    font-family: 'Viga';
+    font-size: 40px;
+}
+
+#logo
+{
+    width: 30px;
+    height:30px;
+}
+
 table .header:after {
   content: "";
   float: right;
@@ -1355,7 +1366,7 @@ table .headerSortUp.purple, table .headerSortDown.purple {
 .topbar input {
   background-color: #444;
   background-color: rgba(255, 255, 255, 0.3);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Ruda';
   font-size: normal;
   font-weight: 13px;
   line-height: 1;
@@ -1819,7 +1830,7 @@ footer {
   color: #ffffff;
 }
 .btn .close, .alert-message .close {
-  font-family: Arial, sans-serif;
+  font-family: 'Ruda';
   line-height: 18px;
 }
 .btn.danger,
@@ -2543,11 +2554,12 @@ html, body {
 }
 #header ul {
   float: right;
-  margin: 10px 0 0 0;
+  margin: 10px 0 0 0px;
 }
 #header ul li {
   float: left;
-  margin-left: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 .hero-unit {
   text-align: center;

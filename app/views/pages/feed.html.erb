@@ -5,8 +5,8 @@
   <div class="content">
     <div class="page-header">
       <div id="actions">
-        <%= button_tag "Lend", :id => "lend", :class => "btn large primary" %>
-        <%= button_tag "Borrow", :id => "borrow", :class => "btn large success" %>
+        <%= button_tag "GIVE", :id => "lend", :class => "btn large success" %>
+        <%= button_tag "GET", :id => "borrow", :class => "btn large success" %>
       </div>
       
       <%= form_for @item, :html => {:class => "lend-form"} do |form| %>
@@ -19,7 +19,6 @@
         <%= form.text_field :name, :placeholder => "Item name" %>
         <%= form.submit "Post", :class => "btn default" %>
       <% end %>
-
       <%= form_for @event, :html => {:class => "borrow-form"} do |form| %>
         <%= form.text_field :item_name, :placeholder => "What would you like to borrow?" %>
         <%= form.submit "Post", :class => "btn default" %>
