@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120114220643) do
+ActiveRecord::Schema.define(:version => 20120115002927) do
 
   create_table "badges", :force => true do |t|
     t.string   "imageuri"
@@ -25,16 +25,18 @@ ActiveRecord::Schema.define(:version => 20120114220643) do
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "event_id"
+    t.integer  "user_id"
   end
 
   create_table "events", :force => true do |t|
     t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "islending"
     t.integer  "lender_id"
     t.integer  "borrower_id"
     t.string   "item_name"
-    t.boolean  "islending"
   end
 
   create_table "items", :force => true do |t|

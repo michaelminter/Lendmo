@@ -2543,6 +2543,8 @@ html, body {
 #header h1 {
   float: left;
   margin: 0;
+  font-family: 'Viga';
+  font-weight: normal;
 }
 #header a {
   float: right;
@@ -2621,6 +2623,7 @@ html, body {
 .main h4,
 .main h5 {
   font-family: 'Viga';
+  font-weight: normal;
 }
 .main .content {
   background-color: #fff;
@@ -2646,6 +2649,34 @@ html, body {
   float: left;
   margin-left: -60px;
 }
-#user-feed {
+#lend-form, #borrow-form {
+  /* display: none; */
+
+}
+#events .event {
+  width: 100%;
+  float: left;
   margin-bottom: 10px;
+  padding: 0 0 10px 0;
+  border-bottom: solid 1px #EEE;
+}
+#events .event img {
+  float: left;
+  width: 40px;
+}
+#events .event .arrow {
+  float: left;
+  font-size: 20px;
+  margin: 10px;
+}
+#events .event .description {
+  float: left;
+  margin-left: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+#events .event .timestamp {
+  float: right;
+  margin-top: 10px;
+  color: #999;
 }

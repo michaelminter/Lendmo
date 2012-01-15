@@ -1,3 +1,4 @@
+<%= javascript_include_tag "form" %>
 <%= render :partial => 'layouts/header' %>
 
 <div class="main container">
@@ -9,17 +10,31 @@
         <%= button_tag "GET", :id => "borrow", :class => "btn large success" %>
       </div>
       
-      <%= form_for @item, :html => {:class => "lend-form"} do |form| %>
-        <select class="chzn-select" data-placeholder="Choose a friend...">
+      <%= form_for [@user, @item], :html => {:id => "lend-form"} do |form| %>
+        <!-- chosen.js insert -->
+        <select class="chzn-select" data-placeholder="Choose a friend..." name="borrower_id">
           <option value="">Lend to...</option>
           <% @friends.each do |f| %>
             <option value="<%= f.id %>"><%= f.name %></option>
           <% end %>
+<<<<<<< HEAD
         </select><br><br>
+=======
+        </select>
+        <!-- end of chosen.js insert -->
+          
+        <% form.hidden_field :user_id, :value => @user.id %>
+>>>>>>> 48adaab7c9a76db090d13925403eead25df60044
         <%= form.text_field :name, :placeholder => "Item name" %>
+        <%= form.text_field :value, :placeholder => "Item value (optional)", :default => "10" %>
         <%= form.submit "Post", :class => "btn default" %>
       <% end %>
+<<<<<<< HEAD
       <%= form_for @event, :html => {:class => "borrow-form"} do |form| %>
+=======
+
+      <%= form_for @event, :html => {:id => "borrow-form"} do |form| %>
+>>>>>>> 48adaab7c9a76db090d13925403eead25df60044
         <%= form.text_field :item_name, :placeholder => "What would you like to borrow?" %>
         <%= form.submit "Post", :class => "btn default" %>
       <% end %>
@@ -56,6 +71,17 @@
         </div>
         
         
+<<<<<<< HEAD
+=======
+        <div id="events">
+        <% if @events.empty? %>
+          No lending activity found among your friends.
+        <% else %>
+          <%= render :partial => 'posts/feed_item', :collection => @events %>
+        <% end %>
+        </div>
+        
+>>>>>>> 48adaab7c9a76db090d13925403eead25df60044
       </div>
       
       <div class="span4 sidebar">
@@ -71,6 +97,9 @@
     <p>&copy; AD JZ DG JM</p>
   </footer>
   
+<<<<<<< HEAD
   <%= debug session %>
 
+=======
+>>>>>>> 48adaab7c9a76db090d13925403eead25df60044
 </div> <!-- /container -->

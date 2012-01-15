@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :items
-  
+
+  has_and_belongs_to_many :badges
+
   validates :first_name,  :presence => true,
                           :length   => { :maximum => 63 }
   validates :last_name,   :presence => true,
@@ -38,7 +40,7 @@ class User < ActiveRecord::Base
     friends.each do |f|
       friend = User.where(:fb_id => f.fb_id).first
       if !friend.nil?
-        Event.where("lender_id = ? || borrower_id = ?", friend.id, friend.id).each do |e|
+        Event.where("lender_id = ? OR borrower_id = ?", friend.id, friend.id).each do |e|
           events << e unless e.nil?
         end
       end
@@ -47,7 +49,11 @@ class User < ActiveRecord::Base
   end
   
   def activity_events()
-    Event.where("lender_id = ? || borrower_id = ?", self.id, self.id)
+    events = []
+    Event.where("lender_id = ? OR borrower_id = ?", self.id, self.id).find_each do |e|
+      events << e unless e.nil?
+    end
+    events
   end
   
   def self.exists(fb_id)
@@ -61,16 +67,13 @@ class User < ActiveRecord::Base
     end
   end
 
-  def return(item_id)
-    Event.create(:item_id => i, :isLending => false)
-    i = Item.find(item_id)
-    i.destroy
+  def return(item)
+    Event.create(:item_id => item.id, :islending => false)
+    item.destroy
   end
   
-  def lend(item, borrower, value)
-    i = self.items.build(:name => item, :user_id => self.id, :borrower_id => borrower.id, :value => value)
-    i.save
-    Event.create(:item_id => i.id, :isLending => true)
+  def lend(item, borrower)
+    Event.create(:item_id => item.id, :borrower_id => borrower.id, :lender_id => self.id, :item_name => item.name, :islending => true)
   end
 
   # Find the user trying to sign in, or create a new one if they're new
