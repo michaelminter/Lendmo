@@ -9,8 +9,7 @@ class PagesController < ApplicationController
   def feed
     @title = "Lendmo Activity Feed"
     @user = User.find(current_user)
-    # @events = @user.feed_events(session[:token])
-    @events = @user.feed_events(session[:token])
+    @events = @user.feed_events(session[:token]).paginate(:page => params[:page], :per_page => 10)
     @friends = @user.friends(session[:token])
     @item = Item.new
     @event = Event.new

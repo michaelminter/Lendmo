@@ -2114,9 +2114,8 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 .pagination li {
   display: inline;
 }
-.pagination a {
-  float: left;
-  padding: 0 14px;
+.pagination a, .pagination em, .pagination span {
+  padding: 5px 14px;
   line-height: 34px;
   border-right: 1px solid;
   border-right-color: #ddd;
@@ -2127,7 +2126,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   text-decoration: none;
 }
 .pagination a:hover, .pagination .active a {
-  background-color: #c7eefe;
+  background-color: #dff1df;
 }
 .pagination .disabled a, .pagination .disabled a:hover {
   background-color: transparent;
@@ -2680,6 +2679,9 @@ p {
   margin-left: 10px;
   font-size: 16px;
   margin-top: 10px;
+}
+#feed .event .venmo {
+  font-size: 12px;
 }
 #feed .event .timestamp {
   float: right;

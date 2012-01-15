@@ -38,24 +38,16 @@ class User < ActiveRecord::Base
   # Look through the list of friends using Lendmo and find events they've been involved in
   def feed_events(token)
     friends = self.friends(token)
-    events = []
     friends.each do |f|
       friend = User.where(:fb_id => f.fb_id).first
       if !friend.nil?
-        Event.where("lender_id = ? OR borrower_id = ? OR borrower_id = ?", friend.id, friend.id, self.id).each do |e|
-          events << e unless e.nil?
-        end
+        return Event.where("lender_id = ? OR borrower_id = ? OR borrower_id = ?", friend.id, friend.id, self.id)
       end
     end
-    events
   end
   
   def activity_events()
-    events = []
-    Event.where("lender_id = ? OR borrower_id = ?", self.id, self.id).find_each do |e|
-      events << e unless e.nil?
-    end
-    events
+    Event.where("lender_id = ? OR borrower_id = ?", self.id, self.id)
   end
   
   def first_badge

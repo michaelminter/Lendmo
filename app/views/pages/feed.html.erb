@@ -53,6 +53,8 @@
               <%= render :partial => 'posts/feed_item', :collection => @events %>
             <% end %>
             </div>
+            
+            <%= will_paginate @events %>
           </div>
           
           <div id='owe'>

@@ -765,9 +765,8 @@ input[type=submit].btn {
   li {
     display: inline;
   }
-  a {
-    float: left;
-    padding: 0 14px;
+  a, em, span {
+    padding: 5px 14px;
     line-height: (@baseline * 2) - 2;
     border-right: 1px solid;
     border-right-color: #ddd;
@@ -777,7 +776,7 @@ input[type=submit].btn {
   }
   a:hover,
   .active a {
-    background-color: lighten(@blue, 45%);
+    background-color: lighten(@green, 45%);
   }
   .disabled a,
   .disabled a:hover {
