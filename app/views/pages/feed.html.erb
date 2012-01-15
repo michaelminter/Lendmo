@@ -1,3 +1,4 @@
+<%= javascript_include_tag "form" %>
 <%= render :partial => 'layouts/header' %>
 
 <div class="main container">
@@ -10,12 +11,15 @@
       </div>
       
       <%= form_for [@user, @item], :html => {:id => "lend-form"} do |form| %>
+        <!-- chosen.js insert -->
         <select class="chzn-select" data-placeholder="Choose a friend..." name="borrower_id">
           <option value="">Lend to...</option>
           <% @friends.each do |f| %>
             <option value="<%= f.id %>"><%= f.name %></option>
           <% end %>
         </select>
+        <!-- end of chosen.js insert -->
+          
         <% form.hidden_field :user_id, :value => @user.id %>
         <%= form.text_field :name, :placeholder => "Item name" %>
         <%= form.text_field :value, :placeholder => "Item value (optional)", :default => "10" %>
