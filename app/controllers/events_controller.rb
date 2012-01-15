@@ -10,7 +10,7 @@ class EventsController < ApplicationController
       if @event.save
         format.html{ redirect_to '/feed', :notice => 'Borrow request posted successfully.' }
       else
-        format.html{ redicrect_to '/feed', :notice => 'Borrow request unsuccessful.' }
+        format.html{ redirect_to '/feed', :notice => 'Borrow request unsuccessful.' }
       end
     end
   end
