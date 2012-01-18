@@ -11,19 +11,26 @@
   <% end %>
   <%= link_to image_tag(borrower.profile_picture), borrower %>
   
-  <p class="description"><%= @event.description %><br>
+  <p class="description"><%= @event.description.html_safe %><br>
   <% if @event.islending? && !lender.nil? %>
   
-  <% if @user.id == borrower.id %>
     <% item = Item.find(@event.item_id) %>
-    <%= link_to "Return item", { :controller => "items", :action => "destroy", :user_id => @user.id, :id => item.id, :event_id => @event.id }, :class => "sub" %>
-    &#8226;
-    <%= link_to "Pay #{lender.name} back", { :controller => "users", :action => "payback", :user_id => @user.id, :item_id => item.id }, :target => "_blank", :class => "sub" %>
-  <% elsif @user.id == lender.id %>
-    <% item = Item.find(@event.item_id) %>
-    <%= link_to "Charge #{borrower.name} for item", item.create_venmo_url(current_user), :target => "_blank", :class => "sub" %>
-  <% end %>
   
+    <% if @user.id == borrower.id %>
+      <%= link_to "Return item", { :controller => "items", :action => "destroy", :user_id => @user.id, :id => item.id, :event_id => @event.id }, :class => "sub" %>
+      &#8226;
+      <%= link_to "Pay #{lender.name} back", { :controller => "users", :action => "payback", :user_id => @user.id, :item_id => item.id }, :target => "_blank", :class => "sub" %>
+    <% elsif @user.id == lender.id %>
+      <%= link_to "Charge #{borrower.name} for item", item.create_venmo_url(current_user), :target => "_blank", :class => "sub" %>
+    <% end %>
+    
+  <% elsif lender.nil? && @user.id != borrower.id %>
+    <%= form_for [currentUser, newItem], :class => "mini-lend-form" do |form| %>
+      <%= form.hidden_field :borrower_id, :value => borrower.id %>
+      <%= form.hidden_field :user_id, :value => currentUser.id %>
+      <%= form.hidden_field :name, :value => @event.item_name %>
+      <%= form.submit "Lend this item", :class => "mini-lend-link" %>
+    <% end %>
   <% end %>
   </p>
 

@@ -6,3 +6,13 @@
  *= require styles.css
  *= require chosen.css
 */
+
+@-moz-document url-prefix() {
+    #lend-form .chzn-container {
+        float: left;
+		margin: 5px 5px 0 0;
+    }
+	#lend-form input {
+		margin-top: 4px;
+	}
+}

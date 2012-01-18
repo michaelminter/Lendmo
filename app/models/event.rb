@@ -5,15 +5,19 @@ class Event < ActiveRecord::Base
   
   def description()
     borrower = self.borrower
+    borrower_url = Rails.root + "/users/#{borrower.id}"
+    
     if(lender_id.nil?)
-      return borrower.name + " wants to borrow " + self.item_name
+      return "<a href=#{borrower_url} class='user'>" + borrower.name + "</a> wants to borrow " + self.item_name
     else
       item = Item.find(self.item_id)
       lender = self.lender
+      lender_url = Rails.root + "/users/#{lender.id}"
+      
       if (self.islending?)
-        lender.name + " lent " + item.name + " to " + borrower.name
+        "<a href=#{lender_url} class='user'>" + lender.name + "</a> lent " + item.name + " to <a href=#{borrower_url} class='user'>" + borrower.name + "</a>"
       else
-        borrower.name + " returned " + item.name + " to " + lender.name
+        "<a href=#{borrower_url} class='user'>" + borrower.name + "</a> returned " + item.name + " to <a href=#{lender_url} class='user'>" + lender.name + "</a>"
       end
     end
   end

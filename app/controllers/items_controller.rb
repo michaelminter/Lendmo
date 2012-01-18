@@ -1,7 +1,5 @@
 class ItemsController < ApplicationController
   def create
-    params[:item][:borrower_id] = params[:borrower_id]
-    params[:item][:user_id] = params[:user_id]
     @user = User.find(current_user)
     @item = @user.items.build(params[:item])
     @borrower = User.find(@item.borrower_id)
@@ -9,7 +7,9 @@ class ItemsController < ApplicationController
     respond_to do |format|
       if @item.save
         @user.lend(@item, @borrower, session[:token])
-        logger.debug "New post: #{params.inspect}"
+        borrow_request = Event.where("borrower_id = ? AND item_name = ?", @borrower.id, @item.name).last
+        borrow_request.destroy
+        
         format.html { redirect_to '/feed', :notice => 'Lent sucessfully.' }
       else
         format.html { redirect_to '/feed', :notice => 'Lending unsucessful.' }

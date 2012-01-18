@@ -25,14 +25,14 @@
         </select>
         <!-- end of chosen.js insert -->
         
-        <% form.hidden_field :user_id, :value => @user.id %>
+        <%= form.hidden_field :user_id, :value => @user.id %>
         <%= form.text_field :name, :placeholder => "Item name" %>
         <%= form.text_field :value, :placeholder => "Item value (optional)", :default => "10" %>
         <%= form.submit "Post", :class => "btn default" %>
       <% end %>
 
       <%= form_for @event, :html => {:id => "borrow-form"} do |form| %>
-        <% form.hidden_field :borrower_id, :value => @user.id %>
+        <%= form.hidden_field :borrower_id, :value => @user.id %>
         <%= form.text_field :item_name, :placeholder => "What would you like to borrow?" %>
         <%= form.submit "Post", :class => "btn default" %>
       <% end %>
@@ -53,7 +53,7 @@
             <% if @events.empty? %>
               No lending activity found among your friends.
             <% else %>
-              <%= render :partial => 'posts/feed_item', :collection => @events %>
+              <%= render :partial => 'posts/feed_item', :collection => @events, :locals => { :newItem => @item, :currentUser => @user } %>
             <% end %>
             </div>
             
