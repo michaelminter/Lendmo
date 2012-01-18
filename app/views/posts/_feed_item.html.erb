@@ -5,6 +5,8 @@
 <% borrower = @event.borrower %>
 
 <div class="event">
+  <%= debug @user %>
+  <%= debug borrower %>
   <% unless lender.nil? %>
     <%= link_to image_tag(lender.profile_picture), lender %>
     <span class="arrow <%= 'rotate' unless @event.islending? %>">&#10132;</span>      
@@ -15,7 +17,7 @@
   <% if @event.islending? && !lender.nil? %>
   
     <% item = Item.find(@event.item_id) %>
-  
+    
     <% if @user.id == borrower.id %>
       <%= link_to "Return item", { :controller => "items", :action => "destroy", :user_id => @user.id, :id => item.id, :event_id => @event.id }, :class => "sub" %>
       &#8226;
