@@ -25,12 +25,14 @@
     <% end %>
     
   <% elsif lender.nil? && current_user.id != borrower.id %>
+  
     <%= form_for [currentUser, newItem], :class => "mini-lend-form" do |form| %>
       <%= form.hidden_field :borrower_id, :value => borrower.id %>
       <%= form.hidden_field :user_id, :value => currentUser.id %>
       <%= form.hidden_field :name, :value => @event.item_name %>
       <%= form.submit "Lend this item", :class => "mini-lend-link" %>
     <% end %>
+    
   <% end %>
   </p>
 

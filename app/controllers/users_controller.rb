@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @events = @user.activity_events.paginate(:page => params[:page], :per_page => 10)
     @badges = @user.badges
+    @item = Item.new
 
     respond_to do |format|
       format.html
