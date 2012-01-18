@@ -24,7 +24,7 @@
       <%= link_to "Charge #{borrower.name} for item", item.create_venmo_url(current_user), :target => "_blank", :class => "sub" %>
     <% end %>
     
-  <% elsif lender.nil? && @user.id != borrower.id %>
+  <% elsif lender.nil? && current_user.id != borrower.id %>
     <%= form_for [currentUser, newItem], :class => "mini-lend-form" do |form| %>
       <%= form.hidden_field :borrower_id, :value => borrower.id %>
       <%= form.hidden_field :user_id, :value => currentUser.id %>
