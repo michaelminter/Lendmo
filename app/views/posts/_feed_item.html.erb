@@ -5,8 +5,7 @@
 <% borrower = @event.borrower %>
 
 <div class="event">
-  <%= debug @user %>
-  <%= debug borrower %>
+  <%= debug current_user %>
   <% unless lender.nil? %>
     <%= link_to image_tag(lender.profile_picture), lender %>
     <span class="arrow <%= 'rotate' unless @event.islending? %>">&#10132;</span>      
