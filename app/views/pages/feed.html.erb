@@ -28,13 +28,15 @@
         <%= form.hidden_field :user_id, :value => @user.id %>
         <%= form.text_field :name, :placeholder => "Item name" %>
         <%= form.text_field :value, :placeholder => "Item value (optional)", :default => "10" %>
-        <%= form.submit "Post", :class => "btn default" %>
+        <%= form.submit "Record lend", :class => "btn default" %>
       <% end %>
 
       <%= form_for @event, :html => {:id => "borrow-form"} do |form| %>
         <%= form.hidden_field :borrower_id, :value => @user.id %>
         <%= form.text_field :item_name, :placeholder => "What would you like to borrow?" %>
-        <%= form.submit "Post", :class => "btn default" %>
+        <%= form.check_box :fb_post %>
+        <%= form.label :fb_post, "Post to Facebook" %>
+        <%= form.submit "Submit request", :class => "btn default" %>
       <% end %>
     </div>
     

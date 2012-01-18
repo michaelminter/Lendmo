@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120115051555) do
+ActiveRecord::Schema.define(:version => 20120118072829) do
 
   create_table "badges", :force => true do |t|
     t.string   "name"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20120115051555) do
     t.integer  "lender_id"
     t.integer  "borrower_id"
     t.string   "item_name"
+    t.boolean  "fb_post"
   end
 
   create_table "items", :force => true do |t|

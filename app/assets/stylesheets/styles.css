@@ -2656,6 +2656,16 @@ p, f {
   background-color: #FEE;
   border-color: #F00;
 }
+.main #lend-form label, .main #borrow-form label {
+  display: inline-block;
+  float: none;
+  width: auto;
+  text-align: left;
+  margin-right: 20px;
+}
+.main #item_name {
+  width: 175px;
+}
 .main #item_value {
   width: 130px;
 }
